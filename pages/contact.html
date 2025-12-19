@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - PixelLumo</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+    .social-links-icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .social-icon-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #b0a0ff;
+        transition: all 0.3s ease;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .social-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 0 8px rgba(255, 20, 147, 0.3));
+    }
+
+    .social-icon-link:hover {
+        transform: scale(1.1);
+        color: #ff1493;
+        background: rgba(255, 20, 147, 0.1);
+        box-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
+    }
+
+    .social-icon-link:hover .social-icon {
+        filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.8));
+    }
+
+    .social-icon-link span {
+        font-weight: bold;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1 class="glow">Contact PixelLumo</h1>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About Lumo</a>
+        <a href="community.html">Community Hub</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="tutorials.html">Tutorials</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="chat.html">Chat</a>
+        <a href="messaging.html">Messages</a>
+        <a href="contact.html">Contact</a>
+        <a href="patreon.html">Support</a>
+        <a href="notifications.html">🔔</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<main>
+    <section class="fade-in">
+        <h2>Follow Me</h2>
+        <div class="social-links-icons">
+            <a href="https://www.twitch.tv/lumothegamer" target="_blank" class="social-icon-link">
+                <img src="../assets/twitch-icon.png" alt="Twitch" class="social-icon">
+                <span>Twitch</span>
+            </a>
+            <a href="https://x.com/lizzy_lumo" target="_blank" class="social-icon-link">
+                <img src="../assets/twitter-icon.png" alt="Twitter" class="social-icon">
+                <span>X/Twitter</span>
+            </a>
+            <a href="https://www.instagram.com/_taine_hancke/" target="_blank" class="social-icon-link">
+                <img src="../assets/instagram-icon.png" alt="Instagram" class="social-icon">
+                <span>Instagram</span>
+            </a>
+            <a href="https://discord.com/users/lumo_thegamer" target="_blank" class="social-icon-link">
+                <img src="../assets/discord-icon.png" alt="Discord" class="social-icon">
+                <span>Discord</span>
+            </a>
+            <a href="https://www.youtube.com/@lumothegamer" target="_blank" class="social-icon-link">
+                <img src="../assets/youtube-icon.png" alt="YouTube" class="social-icon">
+                <span>YouTube</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="fade-in">
+        <h2>Contact Form</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 PixelLumo</p>
+</footer>
+
+<script src="../js/auth.js"></script>
+<script src="../js/scripts.js"></script>
+</body>
+</html>
+
+
+
+

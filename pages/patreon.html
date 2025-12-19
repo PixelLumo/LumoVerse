@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support PixelLumo - Patreon</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+    .patreon-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    .patreon-hero {
+        margin-bottom: 60px;
+    }
+
+    .patreon-hero h1 {
+        font-size: 48px;
+        margin-bottom: 15px;
+        text-shadow: 0 0 20px #ff1493;
+    }
+
+    .patreon-hero h1 span {
+        color: #ff1493;
+    }
+
+    .patreon-hero p {
+        font-size: 16px;
+        color: #ddd;
+        max-width: 750px;
+        line-height: 1.8;
+    }
+
+    .section {
+        margin-bottom: 60px;
+    }
+
+    .section h2 {
+        font-size: 36px;
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #ff1493;
+        text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+    }
+
+    .section p {
+        color: #ddd;
+        max-width: 750px;
+        line-height: 1.8;
+        font-size: 15px;
+    }
+
+    .tiers {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .tier {
+        background: linear-gradient(135deg, rgba(26, 15, 40, 0.8) 0%, rgba(106, 10, 173, 0.2) 100%);
+        border: 2px solid rgba(106, 10, 173, 0.5);
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        transition: all 0.3s ease;
+    }
+
+    .tier:hover {
+        border-color: #ff1493;
+        box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+        transform: translateY(-5px);
+    }
+
+    .tier h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #ff1493;
+        font-size: 20px;
+    }
+
+    .tier ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: #ddd;
+    }
+
+    .tier li {
+        margin-bottom: 12px;
+        padding-left: 20px;
+        position: relative;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .tier li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #00ff00;
+        font-weight: bold;
+    }
+
+    .cta {
+        margin-top: 80px;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .cta a {
+        display: inline-block;
+        background: #ff1493;
+        color: #fff;
+        padding: 15px 50px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(255, 20, 147, 0.3);
+        margin: 10px;
+    }
+
+    .cta a:hover {
+        background: #6a0dad;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(255, 20, 147, 0.5);
+    }
+
+    .patreon-footer {
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(106, 10, 173, 0.3);
+        text-align: center;
+        font-size: 14px;
+        color: #b0a0ff;
+    }
+
+    @media (max-width: 768px) {
+        .patreon-hero h1 {
+            font-size: 36px;
+        }
+
+        .section h2 {
+            font-size: 28px;
+        }
+
+        .tiers {
+            grid-template-columns: 1fr;
+        }
+
+        .cta a {
+            padding: 12px 40px;
+            font-size: 15px;
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1 class="glow">Support PixelLumo</h1>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About Lumo</a>
+        <a href="community.html">Community Hub</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="tutorials.html">Tutorials</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="chat.html">Chat</a>
+        <a href="messaging.html">Messages</a>
+        <a href="contact.html">Contact</a>
+        <a href="patreon.html">Support</a>
+        <a href="notifications.html">🔔</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<main>
+    <div class="patreon-wrapper">
+        <!-- HERO -->
+        <section class="patreon-hero">
+            <h1>Support <span>PixelLumo</span></h1>
+            <p>
+                PixelLumo is an independent creative project focused on gaming, community,
+                and building digital spaces that grow with the people inside them.
+                Supporting on Patreon helps turn ideas into real features.
+            </p>
+        </section>
+
+        <!-- WHY SUPPORT -->
+        <section class="section">
+            <h2>Why Support?</h2>
+            <p>
+                Your support helps fund development, hosting, and future community tools
+                like user posts, searchable guides, profiles, and creator features.
+                No ads. No paywalls. Just steady progress.
+            </p>
+        </section>
+
+        <!-- TIERS -->
+        <section class="section">
+            <h2>Support Tiers</h2>
+
+            <div class="tiers">
+                <!-- SUPPORTER -->
+                <div class="tier">
+                    <h3>🌱 Supporter</h3>
+                    <ul>
+                        <li>Early updates & announcements</li>
+                        <li>Supporter badge on your profile (future)</li>
+                        <li>Behind-the-scenes development posts</li>
+                    </ul>
+                </div>
+
+                <!-- BUILDER -->
+                <div class="tier">
+                    <h3>🚀 Builder</h3>
+                    <ul>
+                        <li>All Supporter perks</li>
+                        <li>Vote on upcoming features</li>
+                        <li>Priority visibility on community posts</li>
+                    </ul>
+                </div>
+
+                <!-- CORE -->
+                <div class="tier">
+                    <h3>👑 Core Member</h3>
+                    <ul>
+                        <li>All Builder perks</li>
+                        <li>Direct feedback channel with Lumo</li>
+                        <li>Name listed on the site (optional)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRANSPARENCY -->
+        <section class="section">
+            <h2>Transparency</h2>
+            <p>
+                Patreon funds are used strictly for PixelLumo: hosting, tools, and
+                development time. Progress and changes are visible — no hidden use,
+                no vague promises.
+            </p>
+        </section>
+
+        <!-- TWITCH -->
+        <section class="section">
+            <h2>Watch on Twitch</h2>
+            <p>
+                Follow us on Twitch to watch live gaming sessions, development streams,
+                and hang out with the community. Your support through follows and engagement
+                helps grow the channel.
+            </p>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+            <a href="https://www.patreon.com/cw/Lumo_the1" target="_blank">Support PixelLumo on Patreon</a>
+            <a href="https://www.twitch.tv/lumothegamer" target="_blank">Follow on Twitch</a>
+        </section>
+
+        <!-- EXCLUSIVE CONTENT FOR SUPPORTERS -->
+        <section class="section" id="exclusiveContentSection" style="display:none;">
+            <h2 style="color: #00ff00;">✓ Your Exclusive Content</h2>
+            <p style="color: #00ff00;">Thank you for being a supporter! Here are your exclusive perks:</p>
+            <div class="tier" style="border-color: #00ff00; background: linear-gradient(135deg, rgba(0, 255, 0, 0.1) 0%, rgba(106, 10, 173, 0.2) 100%);">
+                <ul id="exclusiveContent">
+                    <li>Exclusive Game Guides & Tutorials</li>
+                    <li>Behind-the-scenes development posts</li>
+                    <li>Special supporter badges & achievements</li>
+                    <li>Priority access to new features</li>
+                    <li>Early access to beta content</li>
+                    <li>Exclusive supporter-only posts and tutorials</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="patreon-footer">
+            <p>
+                Supporting is optional. Being part of the community is always free.
+            </p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 PixelLumo</p>
+</footer>
+
+<script src="../js/auth.js"></script>
+<script src="../js/patreon.js"></script>
+<script src="../js/scripts.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Lumo - PixelLumo</title>
+<link rel="stylesheet" href="../css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+<style>
+    * {
+        font-family: 'Righteous', cursive !important;
+    }
+
+    .hero-section {
+        text-align: center;
+        padding: 60px 20px 40px;
+        background: linear-gradient(180deg, rgba(106, 10, 173, 0.15) 0%, transparent 100%);
+        border-bottom: 2px solid rgba(106, 10, 173, 0.3);
+        margin-bottom: 60px;
+    }
+
+    .hero-section h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+        text-shadow: 0 0 20px #ff1493;
+        color: #ff1493;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    .hero-section .subtitle {
+        font-size: 18px;
+        color: #b0a0ff;
+        margin-bottom: 25px;
+        font-weight: 600;
+        text-shadow: 0 0 10px #6a0dad;
+    }
+
+    .hero-section .tagline {
+        font-size: 16px;
+        color: #ff69b4;
+        max-width: 600px;
+        margin: 0 auto;
+        font-style: italic;
+        line-height: 1.8;
+        text-shadow: 0 0 5px #ff1493;
+    }
+
+    .page-section {
+        margin-bottom: 80px;
+        padding: 0 20px;
+    }
+
+    .page-section h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #ff1493;
+        text-shadow: 0 0 15px #ff1493;
+        padding-bottom: 15px;
+        border-bottom: 2px solid rgba(255, 20, 147, 0.5);
+        display: block;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    .creator-content {
+        max-width: 1000px;
+        margin: 0;
+        padding: 0 40px;
+    }
+
+    .creator-content p {
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 1.8;
+        color: #b0a0ff;
+        text-shadow: 0 0 5px #6a0dad;
+    }
+
+    .journey-timeline {
+        max-width: 1000px;
+        margin: 0;
+        padding: 0 40px;
+        position: relative;
+        padding-left: 80px;
+    }
+
+    .journey-item {
+        margin-bottom: 40px;
+        padding-bottom: 30px;
+        border-left: 2px solid #ff1493;
+        padding-left: 30px;
+        position: relative;
+    }
+
+    .journey-item::before {
+        content: '';
+        position: absolute;
+        left: -8px;
+        top: 0;
+        width: 14px;
+        height: 14px;
+        background-color: #ff1493;
+        border: 3px solid #1a1a1a;
+        border-radius: 50%;
+    }
+
+    .journey-item:last-child {
+        border-left-color: transparent;
+    }
+
+    .journey-item strong {
+        color: #ff1493;
+        font-size: 16px;
+        text-shadow: 0 0 5px #ff1493;
+    }
+
+    .journey-item p {
+        color: #b0a0ff;
+        margin-top: 8px;
+        font-size: 15px;
+        text-shadow: 0 0 5px #6a0dad;
+    }
+
+    .community-section {
+        max-width: 1000px;
+        margin: 0;
+        padding: 0 40px;
+    }
+
+    .community-section > p {
+        font-size: 16px;
+        line-height: 1.8;
+        margin-bottom: 30px;
+        color: #b0a0ff;
+        text-shadow: 0 0 5px #6a0dad;
+    }
+
+    .community-subsection {
+        margin-bottom: 40px;
+        padding: 20px;
+        background: rgba(255, 20, 147, 0.1);
+        border-left: 4px solid #ff1493;
+        border-radius: 5px;
+    }
+
+    .community-subsection h3 {
+        color: #ff1493;
+        margin-bottom: 12px;
+        font-size: 18px;
+        text-shadow: 0 0 5px #ff1493;
+        text-align: center;
+    }
+
+    .community-subsection ul {
+        list-style: none;
+        margin-left: 0;
+    }
+
+    .community-subsection li {
+        color: #b0a0ff;
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+        text-shadow: 0 0 5px #6a0dad;
+    }
+
+    .community-subsection li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: #ff1493;
+        font-weight: bold;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff1493, #ff69b4);
+        color: #fff;
+        padding: 15px 40px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 30px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 30px rgba(255, 20, 147, 0.8);
+    }
+
+    .cta-button:hover {
+        background: linear-gradient(135deg, #6a0dad, #ff1493);
+        box-shadow: 0 0 50px rgba(255, 20, 147, 0.9);
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        .hero-section h1 {
+            font-size: 36px;
+        }
+
+        .page-section h2 {
+            font-size: 24px;
+        }
+
+        .hero-section {
+            padding: 40px 20px 30px;
+        }
+
+        .page-section {
+            margin-bottom: 60px;
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1 class="glow">About Lumo</h1>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About Lumo</a>
+        <a href="community.html">Community Hub</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="tutorials.html">Tutorials</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="chat.html">Chat</a>
+        <a href="messaging.html">Messages</a>
+        <a href="contact.html">Contact</a>
+        <a href="patreon.html">Support</a>
+        <a href="notifications.html">🔔</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<main>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <h1>About Lumo</h1>
+        <p class="subtitle">Creator, builder, and the mind behind PixelLumo & LumoVerse</p>
+        <p class="tagline">"I build digital worlds, communities, and tools — one pixel at a time."</p>
+    </section>
+
+    <!-- THE CREATOR SECTION -->
+    <section class="page-section">
+        <h2>The Creator</h2>
+        <div class="creator-content">
+            <p>Hey there! I've been gaming for as long as I can remember. Starting with mobile games during school, diving headfirst into PlayStation adventures, and now conquering the world of PC gaming. I'm all about building epic worlds, teaming up with friends, and finding those unforgettable gaming moments that make you laugh, shout, or just stare at the screen in awe.</p>
+            
+            <p>I'm obsessed with Supercell games, Minecraft, Rocket League, Terraria, Fallout, and tons of other adventures. In Minecraft, I love creating massive builds and tackling wild challenges with my friends. Sometimes things get chaotic, but that's part of the fun! Rocket League keeps me on my toes with daily matches, ranked games, and spontaneous tournaments. Fallout? A solo wasteland adventure full of random glitches and hilarious moments.</p>
+            
+            <p>When I'm not gaming, I'm a movie and series junkie. Space, adventure, fantasy, and sci-fi are my playgrounds. Oh, and I'm a die-hard Spurs fan — don't judge me! I'm all about community, connecting with fellow gamers, and creating a space where everyone can share in the fun, the chaos, and the victories. Gaming isn't just a hobby for me — it's a way to bring people together and make memories that last.</p>
+        </div>
+    </section>
+
+    <!-- THE JOURNEY SECTION -->
+    <section class="page-section">
+        <h2>The Journey</h2>
+        <div class="journey-timeline">
+            <div class="journey-item">
+                <strong>Started PixelLumo</strong>
+                <p>Learning web development from scratch, building the foundation for a gaming community platform.</p>
+            </div>
+            <div class="journey-item">
+                <strong>Built LumoVerse Login System</strong>
+                <p>Created authentication infrastructure to connect players and secure the community.</p>
+            </div>
+            <div class="journey-item">
+                <strong>Launched Community Dashboard</strong>
+                <p>Developed tools for players to connect, share, and collaborate on gaming adventures.</p>
+            </div>
+            <div class="journey-item">
+                <strong>Experimenting with Lumo AI</strong>
+                <p>Exploring AI assistants to enhance user experience and community engagement.</p>
+            </div>
+            <div class="journey-item">
+                <strong>Growing the Ecosystem</strong>
+                <p>Continuously building, learning, and inviting builders to shape the future of PixelLumo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE COMMUNITY SECTION -->
+    <section class="page-section">
+        <div class="community-section">
+            <h2 style="margin-top: 0;">The Community</h2>
+            
+            <p>PixelLumo and LumoVerse aren't just platforms — they're spaces where gamers, creators, and curious builders connect, create, and grow together. This is for everyone who loves gaming, wants to build something cool, or just wants to be part of something bigger.</p>
+
+            <div class="community-subsection">
+                <h3>What We Do</h3>
+                <ul>
+                    <li>Host gaming events across Minecraft, Rocket League, Terraria, and Supercell games</li>
+                    <li>Create a safe space for builders, creators, and competitive players</li>
+                    <li>Share strategies, tips, and hilarious gaming moments</li>
+                    <li>Build community-driven features and tools</li>
+                </ul>
+            </div>
+
+            <div class="community-subsection">
+                <h3>What's Next</h3>
+                <ul>
+                    <li>Expanded gaming events and tournaments</li>
+                    <li>Community-built features and tools</li>
+                    <li>Deeper integration with Discord and game platforms</li>
+                    <li>A thriving ecosystem for creators and gamers</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center;">
+                <p style="color: #ff1493; font-size: 18px; font-weight: 600; margin-top: 40px; text-shadow: 0 0 10px #ff1493;">Ready to join?</p>
+                <a href="login.html" class="cta-button">Enter the LumoVerse</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 PixelLumo</p>
+</footer>
+
+<script src="../js/auth.js"></script>
+<script src="../js/scripts.js"></script>
+</body>
+</html>
+
+
+
+

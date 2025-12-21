@@ -1,0 +1,101 @@
+name: Frontend Build & Test
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Run linter
+      run: npm run lint --if-present
+    
+    - name: Run tests
+      run: npm run test --if-present
+    
+    - name: Run test coverage
+      run: npm run test:coverage --if-present
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      if: always()
+      with:
+        file: ./coverage/lcov.info
+        flags: frontend
+        name: frontend-coverage
+
+  build-expo:
+    runs-on: ubuntu-latest
+    needs: lint-test
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Install EAS CLI
+      run: npm install -g eas-cli
+    
+    - name: Validate Expo config
+      run: npx expo validate
+    
+    - name: Build preview for Android
+      run: eas build --platform android --profile preview --non-interactive
+      env:
+        EAS_TOKEN: ${{ secrets.EAS_TOKEN }}
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    - name: Build preview for iOS
+      run: eas build --platform ios --profile preview --non-interactive
+      env:
+        EAS_TOKEN: ${{ secrets.EAS_TOKEN }}
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+  deploy-preview:
+    runs-on: ubuntu-latest
+    needs: build-expo
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+    
+    - name: Install EAS CLI
+      run: npm install -g eas-cli
+    
+    - name: Submit to preview channels
+      run: |
+        eas submit --platform android --latest
+        eas submit --platform ios --latest
+      env:
+        EAS_TOKEN: ${{ secrets.EAS_TOKEN }}

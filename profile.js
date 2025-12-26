@@ -33,12 +33,39 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadProfile(username) {
     try {
         // Load profile data from localStorage
-        const profileData = localStorage.getItem(`userProfile_${username}`);
-        const userData = localStorage.getItem(`user_${username}`);
-        const achievementsData = localStorage.getItem(`userAchievements_${username}`);
-        
-        if (!profileData && !userData) {
-            showError(`User "${username}" not found`);
+        let profileData = localStorage.getItem(`userProfile_${username}`);
+        let userData = localStorage.getItem(`user_${username}`);
+        let achievementsData = localStorage.getItem(`userAchievements_${username}`);
+
+        // If not found locally, try to fetch from backend
+        if (!profileData || !userData) {
+            fetch(`${window.API_BASE}/api/profile/${username}`)
+                .then(r => r.ok ? r.json() : null)
+                .then(user => {
+                    if (!user) {
+                        showError(`User "${username}" not found`);
+                        return;
+                    }
+                    // Save to localStorage for next time
+                    localStorage.setItem(`user_${username}`, JSON.stringify(user));
+                    // Optionally fetch profile/achievements if you have endpoints
+                    // For now, just use user object
+                    currentProfile = {
+                        username: user.username,
+                        email: user.email || 'hidden',
+                        bio: user.bio || 'No bio yet',
+                        favGame: user.favGame || 'Not specified',
+                        avatar: user.avatar || null,
+                        joinDate: user.created_at || new Date().toISOString(),
+                        followers: user.followers || 0,
+                        following: user.following || 0,
+                        role: user.role || 'user',
+                        achievements: []
+                    };
+                    displayProfile();
+                    loadUserPosts(username);
+                })
+                .catch(() => showError(`User "${username}" not found`));
             return;
         }
 

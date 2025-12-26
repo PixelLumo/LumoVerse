@@ -1,0 +1,15 @@
+@import url("fonts.css");
+
+:root {
+  --font-main: "Fondeka", system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-main); line-height: 1.5; }
+.container { max-width: 1200px; margin: auto; padding: 1rem; }
+button { font-family: var(--font-main); cursor: pointer; }
+
+@media (max-width: 768px) {
+  nav a { display: block; padding: 0.75rem; }
+  .container { padding: 0.5rem; }
+}

@@ -1,0 +1,13 @@
+/* Fondeka Font Face Example */
+@font-face {
+  font-family: 'Fondeka';
+  src: url('../assets/fonts/Fondeka-Regular.woff2') format('woff2'),
+       url('../assets/fonts/Fondeka-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body, html {
+  font-family: 'Fondeka', Arial, sans-serif;
+}

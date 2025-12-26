@@ -1,3 +1,4 @@
+// [TODO 1 COMPLETED] Obsolete scripts.js removed and utils.js cleaned up. Proceeding to add css/fonts.css and update HTML imports.
 /**
  * PixelLumo - Shared Utilities
  * Common functions used across all pages
@@ -28,29 +29,8 @@ const NotifyHelper = {
     }
 };
 
-// Storage utilities - shorter keys to save space
-const Store = {
-    posts: () => JSON.parse(localStorage.getItem('pixellumoPosts')) || [],
-    savePosts: (data) => localStorage.setItem('pixellumoPosts', JSON.stringify(data)),
-    
-    chat: () => JSON.parse(localStorage.getItem('pixellumoChat')) || [],
-    saveChat: (data) => localStorage.setItem('pixellumoChat', JSON.stringify(data)),
-    
-    messages: () => JSON.parse(localStorage.getItem('pixellumoMessages')) || {},
-    saveMessages: (data) => localStorage.setItem('pixellumoMessages', JSON.stringify(data)),
-    
-    tutorials: () => JSON.parse(localStorage.getItem('pixellumoTutorials')) || [],
-    saveTutorials: (data) => localStorage.setItem('pixellumoTutorials', JSON.stringify(data)),
-    
-    images: () => JSON.parse(localStorage.getItem('pixellumoImages')) || [],
-    saveImages: (data) => localStorage.setItem('pixellumoImages', JSON.stringify(data)),
-    
-    blog: () => JSON.parse(localStorage.getItem('pixellumoBlog')) || [],
-    saveBlog: (data) => localStorage.setItem('pixellumoBlog', JSON.stringify(data)),
-    
-    notifs: (user) => JSON.parse(localStorage.getItem(`pixellumoNotifications_${user}`)) || [],
-    saveNotifs: (user, data) => localStorage.setItem(`pixellumoNotifications_${user}`, JSON.stringify(data))
-};
+// Storage utilities have been migrated to storage-service.js
+// Remove any usage of the Store object. Use the global 'storage' object from storage-service.js instead.
 
 // Format date/time
 const TimeFormat = {

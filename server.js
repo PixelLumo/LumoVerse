@@ -11,22 +11,24 @@
  * - Admin controls for content moderation
  */
 
-require('dotenv').config();
+
+import dotenv from 'dotenv';
+dotenv.config();
 import express from "express";
 import session from "express-session";
 import csrf from "csurf";
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const multer = require('multer');
-const http = require('http');
-const { Server } = require('socket.io');
-const path = require('path');
-const fs = require('fs');
-const crypto = require('crypto');
-const nodemailer = require('nodemailer');
-const { initDatabase } = require('./database-init');
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import multer from 'multer';
+import http from 'http';
+import { Server } from 'socket.io';
+import path from 'path';
+import fs from 'fs';
+import crypto from 'crypto';
+import nodemailer from 'nodemailer';
+import { initDatabase } from './database-init.js';
 
 // Initialize Express & Socket.IO
 const app = express();
@@ -1666,5 +1668,5 @@ process.on('SIGINT', () => {
     }
 });
 
-module.exports = { app, server, io };
+
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings 🎮 PixelLumo</title>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/fonts.css">
+</head>
+<body>
+<div id="nav"></div>
+<script type="module" src="/js/components-loader.js"></script>
+<script type="module" src="/js/nav-loader.js"></script>
+<script type="module" src="/js/auth.js"></script>
+<main>
+    <section class="fade-in">
+        <h2>Settings</h2>
+        <form id="settingsForm">
+            <label for="emailNotifications">Email Notifications</label>
+            <input type="checkbox" id="emailNotifications" name="emailNotifications">
+            <button type="submit">Update Preferences</button>
+        </form>
+        <div id="successMessage" class="success-message"></div>
+    </section>
+</main>
+<div id="footer"></div>
+<script>
+  document.getElementById('settingsForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    // TODO: Call backend settings update endpoint with CSRF token
+  });
+</script>
+</body>
+</html>

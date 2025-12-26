@@ -1,6 +1,4 @@
-import { v4 as uuid } from "uuid";
-import { mailer } from "../services/email.service.js";
-import { hashPassword } from "../utils/password.js";
+
 export async function requestPasswordReset(req, res) {
 	const { email } = req.body;
 	const token = uuid();

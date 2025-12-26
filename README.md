@@ -4,7 +4,7 @@ Welcome to **PixelLumo**, a complete full-stack gaming community platform! This 
 
 ## 🎮 About PixelLumo
 
-PixelLumo is a modern gaming community platform built with **Node.js/Express backend**, **SQLite database**, and **vanilla JavaScript frontend**. Features real-time chat with Socket.IO, user authentication with JWT, file uploads, and admin controls.
+PixelLumo is a modern gaming community platform built with **Node.js/Express backend**, **MySQL database**, and **vanilla JavaScript frontend**. Features real-time chat with Socket.IO, user authentication with JWT, file uploads, and admin controls.
 
 ### Key Highlights
 - 🔐 Secure authentication with JWT & bcrypt password hashing

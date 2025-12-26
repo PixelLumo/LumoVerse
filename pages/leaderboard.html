@@ -11,6 +11,46 @@
 
   <header class="hero" style="background:#1c1c1c; color:white; text-align:center; padding:2rem 1rem;">
     <h1>Leaderboard</h1>
+    <p>Check out the top gamers in the PixelLumo community!</p>
+  </header>
+
+  <main class="container" style="padding:2rem 1rem;">
+    <section id="leaderboard" style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; color:white;">
+        <thead>
+          <tr>
+            <th style="padding:0.5rem; border-bottom:1px solid #555;">Rank</th>
+            <th style="padding:0.5rem; border-bottom:1px solid #555;">Player</th>
+            <th style="padding:0.5rem; border-bottom:1px solid #555;">Score</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardTable">
+          <!-- JS populates leaderboard here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script type="module" src="/js/components-loader.js"></script>
+  <script type="module" src="/js/nav-loader.js"></script>
+  <script type="module" src="/js/leaderboard.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard - PixelLumo</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav"></div>
+
+  <header class="hero" style="background:#1c1c1c; color:white; text-align:center; padding:2rem 1rem;">
+    <h1>Leaderboard</h1>
     <p>See top players and your ranking in the community.</p>
   </header>
 

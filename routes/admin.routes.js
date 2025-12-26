@@ -1,0 +1,11 @@
+import express from "express";
+import { requireAuth } from "../middleware/auth.middleware.js";
+import { requireAdmin } from "../middleware/admin.middleware.js";
+import { listUsers, toggleUserStatus, getSystemStats, getAuditLogs } from "../controllers/admin.controller.js";
+const router = express.Router();
+router.use(requireAuth, requireAdmin);
+router.get("/users", listUsers);
+router.patch("/users/:id/toggle", toggleUserStatus);
+router.get("/stats", getSystemStats);
+router.get("/logs", getAuditLogs);
+export default router;

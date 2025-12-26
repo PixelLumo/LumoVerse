@@ -12,7 +12,9 @@
  */
 
 require('dotenv').config();
-const express = require('express');
+import express from "express";
+import session from "express-session";
+import csrf from "csurf";
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
@@ -28,6 +30,24 @@ const { initDatabase } = require('./database-init');
 
 // Initialize Express & Socket.IO
 const app = express();
+app.use(session({
+    name: "lumoverse.sid",
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        secure: false, // true in HTTPS
+        maxAge: 1000 * 60 * 60 * 24 * 7
+    }
+}));
+
+// CSRF protection for all API routes
+const csrfProtection = csrf();
+app.use("/api", csrfProtection);
+app.get("/api/csrf-token", (req, res) => {
+    res.json({ csrfToken: req.csrfToken() });
+});
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
@@ -95,6 +115,17 @@ app.use(`/${UPLOAD_DIR}`, express.static(UPLOAD_DIR));
 
 import { db } from "./database.js";
 
+
+import adminRoutes from "./routes/admin.routes.js";
+import authRoutes from "./routes/auth.routes.js";
+import userRoutes from "./routes/user.routes.js";
+import uploadRoutes from "./routes/upload.routes.js";
+
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/upload", uploadRoutes);
+
 async function startServer() {
     try {
         await initDatabase();
@@ -117,45 +148,17 @@ async function seedTestUsers() {
     const [rows] = await db.execute('SELECT COUNT(*) as count FROM users');
     if (rows[0].count > 0) return;
 
-        console.log('📝 Seeding test users...');
-
-        // Hash test passwords (using async bcrypt.hash)
-        try {
-            const testPassword = await bcrypt.hash('test123', 10);
-            const adminPassword = await bcrypt.hash('admin123', 10);
-
-        // Insert test user
-        const hash = await bcrypt.hash('password', 10);
-        await db.execute('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', ['testuser', 'test@example.com', hash]);
-    } catch (err) {
-        console.error('Error seeding test users:', err);
-    }
-}
-            ];
-
-            let inserted = 0;
-            testUsers.forEach(user => {
-                db.run(
-                    `INSERT INTO users(username, email, password, role) VALUES(?, ?, ?, ?)`,
-                    [user.username, user.email, user.password, user.role],
-                    function (err) {
-                        if (!err) {
-                            inserted++;
-                            console.log(`  ✅ Created test user: ${user.username} (${user.email})`);
-                        } else {
-                            console.error(`  ❌ Failed to create ${user.username}:`, err.message);
-                        }
-                        
-                        if (inserted === testUsers.length) {
-                            console.log('✅ Test users seeding complete');
-                        }
-                    }
-                );
-            });
-        } catch (error) {
-            console.error('❌ Error seeding test users:', error.message);
-        }
-    });
+    console.log('📝 Seeding test users...');
+    const testPassword = await bcrypt.hash('test123', 10);
+    const adminPassword = await bcrypt.hash('admin123', 10);
+    // Insert test users
+    await db.execute('INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)', ['testuser', 'test@example.com', testPassword, 'user']);
+    await db.execute('INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)', ['admin', 'admin@example.com', adminPassword, 'admin']);
+    await db.execute('INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)', ['demo', 'demo@example.com', testPassword, 'user']);
+    console.log('✅ Test users seeding complete');
+  } catch (err) {
+    console.error('Error seeding test users:', err);
+  }
 }
 
 // Multer Setup for File Uploads

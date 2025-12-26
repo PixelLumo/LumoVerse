@@ -122,21 +122,25 @@ class StorageService {
      * Logout user
      */
     async logout() {
+        console.log('[StorageService.logout] Called, useBackend:', this.useBackend);
         if (this.useBackend) {
             const token = localStorage.getItem('authToken');
+            console.log('[StorageService.logout] Token:', token);
             if (token) {
                 try {
-                    await fetch(`${this.baseURL}/auth/logout`, {
+                    const resp = await fetch(`${this.baseURL}/auth/logout`, {
                         method: 'POST',
                         headers: { 'Authorization': `Bearer ${token}` }
                     });
+                    console.log('[StorageService.logout] Backend response:', resp.status);
                 } catch (error) {
-                    console.error('Logout error:', error);
+                    console.error('[StorageService.logout] Logout error:', error);
                 }
+            } else {
+                console.warn('[StorageService.logout] No authToken found');
             }
             localStorage.removeItem('authToken');
         }
-        
         sessionStorage.removeItem('pixellumoUser');
         this.cache.clear();
     }

@@ -80,18 +80,24 @@ function loginUser(email, username, remember = false) {
  * Handle user logout
  */
 async function logoutUser() {
+    console.log('[logoutUser] Called');
     // Try to use storage-service.js logout if available
     if (window.StorageService && typeof window.StorageService.logout === 'function') {
         try {
+            console.log('[logoutUser] Using StorageService.logout');
             await window.StorageService.logout();
         } catch (e) {
-            console.error('Logout error:', e);
+            console.error('[logoutUser] StorageService.logout error:', e);
         }
+    } else {
+        console.warn('[logoutUser] StorageService.logout not available');
     }
     sessionStorage.removeItem('pixellumoUser');
     localStorage.removeItem('authToken');
     localStorage.removeItem('pixellumoUser');
-    const loginPage = window.APP_BASE ? window.APP_BASE + 'index.html' : 'index.html';
+    console.log('[logoutUser] Cleared session/localStorage');
+    const loginPage = window.APP_BASE ? window.APP_BASE + 'login.html' : 'login.html';
+    console.log('[logoutUser] Redirecting to', loginPage);
     window.location.href = loginPage;
 }
 

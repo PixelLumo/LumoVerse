@@ -80,6 +80,7 @@ function loadProfile(username) {
 function displayProfile() {
     const headerDiv = document.getElementById('profile-header');
     const contentDiv = document.getElementById('profile-content');
+    const fieldsDiv = document.getElementById('profile-fields');
 
     const isOwnProfile = currentUser && currentUser.username === currentProfile.username;
     const roleIcon = currentProfile.role === 'admin' ? '👑 ' : '';
@@ -98,32 +99,37 @@ function displayProfile() {
         actionButtons = '<p style="color: #999; margin-top: 10px;"><a href="../../index.html">Login to follow</a></p>';
     }
 
+    // Profile fields with N/A fallback
+    const profileFields = [
+        { label: 'Username', value: currentProfile.username || 'N/A' },
+        { label: 'Email', value: currentProfile.email || 'N/A' },
+        { label: 'Bio', value: currentProfile.bio || 'N/A' },
+        { label: 'Favorite Game', value: currentProfile.favGame || 'N/A' },
+        { label: 'Role', value: currentProfile.role || 'N/A' },
+        { label: 'Joined', value: joinDateFormatted || 'N/A' },
+        { label: 'Followers', value: currentProfile.followers != null ? currentProfile.followers : 'N/A' },
+        { label: 'Following', value: currentProfile.following != null ? currentProfile.following : 'N/A' },
+        { label: 'Achievements', value: currentProfile.achievements && currentProfile.achievements.length ? currentProfile.achievements.length : 'N/A' }
+    ];
+
+    fieldsDiv.innerHTML = `
+        <div class="profile-fields-list">
+            ${profileFields.map(f => `<div class="profile-field"><strong>${f.label}:</strong> <span>${escapeHtml(String(f.value))}</span></div>`).join('')}
+        </div>
+        ${isOwnProfile ? `<div class="profile-messages-opt" style="margin: 20px 0;">
+            <label style="font-weight: bold;">Allow Private Messages:</label>
+            <button id="allowMessagesProfile" class="toggle-switch">Loading...</button>
+            <span id="allowMessagesStatus" style="margin-left: 10px; color: #888;"></span>
+        </div>` : ''}
+    `;
+
     headerDiv.innerHTML = `
         <div class="profile-avatar">
             ${currentProfile.avatar ? `<img src="${currentProfile.avatar}" alt="${currentProfile.username}">` : '👤'}
         </div>
         <div class="profile-name">${roleIcon}${currentProfile.username}</div>
         ${currentProfile.role === 'admin' ? '<div class="profile-role admin">🏆 Admin</div>' : ''}
-        ${currentProfile.bio ? `<div class="profile-bio">"${currentProfile.bio}"</div>` : ''}
-        ${currentProfile.favGame && currentProfile.favGame !== 'Not specified' ? `<div class="profile-info">🎮 Favorite Game: ${escapeHtml(currentProfile.favGame)}</div>` : ''}
-        <div class="profile-info" style="font-size: 13px; color: #aaa; margin-top: 10px;">Joined ${joinDateFormatted}</div>
-        <div class="profile-stats">
-            <div class="stat">
-                <div class="stat-number">${currentProfile.followers || 0}</div>
-                <div class="stat-label">Followers</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">${currentProfile.following || 0}</div>
-                <div class="stat-label">Following</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">${currentProfile.achievements ? currentProfile.achievements.length : 0}</div>
-                <div class="stat-label">Achievements</div>
-            </div>
-        </div>
-        <div class="profile-actions">
-            ${actionButtons}
-        </div>
+        <div class="profile-actions">${actionButtons}</div>
     `;
 
     headerDiv.classList.remove('loading');
@@ -133,6 +139,35 @@ function displayProfile() {
     if (!isOwnProfile && currentUser) {
         checkFollowStatus(currentProfile.username);
     }
+
+    // Setup allow messages toggle if own profile
+    if (isOwnProfile) {
+        setupAllowMessagesToggle();
+    }
+}
+
+// Add this function to handle the allow messages toggle
+function setupAllowMessagesToggle() {
+    const btn = document.getElementById('allowMessagesProfile');
+    const status = document.getElementById('allowMessagesStatus');
+    const currentUser = getCurrentUser();
+    if (!btn || !currentUser) return;
+    // Load from settings
+    const settingsKey = 'userSettings_' + currentUser.username;
+    const settings = JSON.parse(localStorage.getItem(settingsKey)) || {};
+    const allowed = settings.allowMessages !== false;
+    btn.classList.toggle('active', allowed);
+    btn.textContent = allowed ? 'ON' : 'OFF';
+    status.textContent = allowed ? 'Others can message you' : 'Messages disabled';
+    btn.onclick = function() {
+        btn.classList.toggle('active');
+        const newAllowed = btn.classList.contains('active');
+        btn.textContent = newAllowed ? 'ON' : 'OFF';
+        status.textContent = newAllowed ? 'Others can message you' : 'Messages disabled';
+        // Save to settings
+        settings.allowMessages = newAllowed;
+        localStorage.setItem(settingsKey, JSON.stringify(settings));
+    };
 }
 
 /**

@@ -69,13 +69,16 @@
         }
     });
 
+    // Ensure StorageService is initialized
+    if (!window.StorageService) {
+        window.StorageService = new StorageService(true); // true = use backend
+    }
     document.getElementById("loginForm").addEventListener("submit", async (e) => {
         e.preventDefault();
         const usernameOrEmail = document.getElementById("username").value;
         const password = document.getElementById("password").value;
         const remember = document.getElementById("remember").checked;
         try {
-            // Use storage-service.js for login
             if (window.StorageService && typeof window.StorageService.login === 'function') {
                 const result = await window.StorageService.login(usernameOrEmail, password);
                 sessionStorage.setItem('pixellumoUser', JSON.stringify(result.user));

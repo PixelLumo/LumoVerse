@@ -54,7 +54,6 @@ PixelLumo is a modern gaming community platform built with **Node.js/Express bac
 
 ### Backend
 - **Node.js & Express.js** - Server framework
-- **SQLite3** - File-based database
 - **Socket.IO** - Real-time bidirectional communication
 - **JWT** - JSON Web Token authentication
 - **Bcrypt** - Password hashing
@@ -115,7 +114,6 @@ PixelLumo/
 ├── components/
 │   └── nav.html                # Navigation component
 ├── database/
-│   └── db.sqlite               # SQLite database (auto-created)
 ├── uploads/                    # User-uploaded files
 ├── docs/
 │   ├── README.md
@@ -171,7 +169,6 @@ PORT=5000
 SECRET_KEY=your-secret-key
 
 # Database
-DATABASE_PATH=./database/db.sqlite
 UPLOAD_DIR=./uploads
 
 # Admin Account
@@ -294,8 +291,6 @@ See `EMAIL_SETUP.md` for other providers and detailed instructions.
 - See `EMAIL_SETUP.md` for setup help
 
 ### Database Issues
-- Delete `database/db.sqlite` to reset
-- Check database path in `.env`
 - Verify file permissions
 
 ### Chat Not Working

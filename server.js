@@ -15,7 +15,6 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const sqlite3 = require('sqlite3').verbose();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
@@ -39,7 +38,6 @@ const io = new Server(server, {
 
 const SECRET_KEY = process.env.SECRET_KEY || "pixelLumoSecret";
 const PORT = process.env.PORT || 5000;
-const DATABASE_PATH = process.env.DATABASE_PATH || './database/db.sqlite';
 const UPLOAD_DIR = process.env.UPLOAD_DIR || './uploads';
 const MAX_FILE_SIZE = process.env.MAX_FILE_SIZE || 5242880; // 5MB
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
@@ -94,32 +92,30 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(`/${UPLOAD_DIR}`, express.static(UPLOAD_DIR));
 
-// Database Connection - Initialize first
-let db;
-initDatabase()
-    .then((database) => {
-        db = database;
-        // Start server after database is ready
-        const PORT = process.env.PORT || 5000;
+
+import { db } from "./database.js";
+
+async function startServer() {
+    try {
+        await initDatabase();
         server.listen(PORT, () => {
             console.log(`🚀 Server is running on port ${PORT}`);
             console.log(`📱 Frontend URL: ${FRONTEND_URL}`);
         });
-        // Seed test users if needed
-        seedTestUsers();
-    })
-    .catch((err) => {
+        await seedTestUsers();
+    } catch (err) {
         console.error('Failed to initialize database:', err);
         process.exit(1);
-    });
+    }
+}
+
+startServer();
 
 // Seed test users for development
-function seedTestUsers() {
-    // Check if users table is empty
-    db.get('SELECT COUNT(*) as count FROM users', async (err, row) => {
-        if (err || (row && row.count > 0)) {
-            return; // Database already has users or error occurred
-        }
+async function seedTestUsers() {
+  try {
+    const [rows] = await db.execute('SELECT COUNT(*) as count FROM users');
+    if (rows[0].count > 0) return;
 
         console.log('📝 Seeding test users...');
 
@@ -128,11 +124,13 @@ function seedTestUsers() {
             const testPassword = await bcrypt.hash('test123', 10);
             const adminPassword = await bcrypt.hash('admin123', 10);
 
-            // Insert test users
-            const testUsers = [
-                { username: 'testuser', email: 'test@example.com', password: testPassword, role: 'user' },
-                { username: 'admin', email: 'admin@example.com', password: adminPassword, role: 'admin' },
-                { username: 'demo', email: 'demo@example.com', password: testPassword, role: 'user' }
+        // Insert test user
+        const hash = await bcrypt.hash('password', 10);
+        await db.execute('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', ['testuser', 'test@example.com', hash]);
+    } catch (err) {
+        console.error('Error seeding test users:', err);
+    }
+}
             ];
 
             let inserted = 0;

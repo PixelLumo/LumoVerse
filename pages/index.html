@@ -8,24 +8,37 @@
     <link rel="stylesheet" href="/css/fonts.css">
 </head>
 <body class="loading-page">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelLumo - Welcome</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
     <div id="nav"></div>
+
+    <header class="hero" style="
+        background: url('/assets/images/landing-bg.jpg') no-repeat center/cover; 
+        height: 70vh; display:flex; align-items:center; justify-content:center; flex-direction:column; color:white; text-align:center;
+    ">
+        <h1 style="font-size:3rem;">Welcome to PixelLumo</h1>
+        <p style="font-size:1.2rem; max-width:600px;">Join the ultimate gaming community — compete, learn, and share your passion!</p>
+        <div style="margin-top:1.5rem;">
+            <a href="/signup.html" class="btn-primary" style="margin-right:1rem;">Sign Up</a>
+            <a href="/login.html" class="btn-secondary">Login</a>
+        </div>
+    </header>
+
+    <footer id="footer" style="background:#1c1c1c; color:white; text-align:center; padding:1.5rem;">
+        <p>&copy; 2025 PixelLumo. All Rights Reserved.</p>
+    </footer>
+
     <script type="module" src="/js/components-loader.js"></script>
     <script type="module" src="/js/nav-loader.js"></script>
-    <div class="loading-container">
-        <div class="spinner"></div>
-        <p>Loading PixelLumo...</p>
-    </div>
-    <script>
-        // Check if user is logged in
-        const token = localStorage.getItem('token');
-        if (token && token.length > 10 && token.includes('.')) {
-            window.location.href = '/pages/home.html';
-        } else {
-            localStorage.removeItem('token');
-            localStorage.removeItem('pixellumoUser');
-            sessionStorage.removeItem('pixellumoUser');
-        }
-    </script>
-    <div id="footer"></div>
+    <script type="module" src="/js/auth.js"></script>
+</body>
+</html>
 </body>
 </html>

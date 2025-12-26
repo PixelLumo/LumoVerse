@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - PixelLumo</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav"></div>
+
+  <header class="hero" style="background:#1c1c1c; color:white; text-align:center; padding:3rem 1rem;">
+    <h1>Share Your Gaming Moments</h1>
+    <p>Upload and view screenshots, art, and videos from our community.</p>
+  </header>
+
+  <main class="container" style="padding:2rem 1rem;">
+    <section id="galleryGrid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:1rem;">
+      <!-- JS will populate gallery images here -->
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script type="module" src="/js/components-loader.js"></script>
+  <script type="module" src="/js/nav-loader.js"></script>
+  <script type="module" src="/js/gallery.js"></script>
+</body>
+</html>

@@ -1,39 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home 🎮 PixelLumo</title>
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/fonts.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelLumo - Home</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<div id="nav"></div>
-<script type="module" src="/js/components-loader.js"></script>
-<script type="module" src="/js/nav-loader.js"></script>
-<main>
-    <section class="fade-in">
-        <h2>Welcome 🎮 PixelLumo! </h2>
-        <p>Your Gaming Community Hub - Connect, Compete, Create!</p>
-    </section>
-    <section class="fade-in">
-        <h2>Featured Games</h2>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px auto; justify-items: center;">
-            <div style="border: 2px solid #6a0dad; padding: 15px; border-radius: 8px; width: 100%; max-width: 200px;">
-                <h3 style="margin: 0 0 10px 0;"> Minecraft</h3>
-                <p style="margin: 0; font-size: 12px;">Creative & Survival</p>
+    <!-- Navigation -->
+    <div id="nav"></div>
+
+    <!-- Hero Section -->
+    <header class="hero" style="
+        background: url('/assets/images/hero-bg.jpg') no-repeat center/cover; 
+        height: 70vh; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        color: white;
+        text-align: center;
+    ">
+        <h1 style="font-size:3rem; margin-bottom:0.5rem;">Welcome to PixelLumo</h1>
+        <p style="font-size:1.25rem; max-width:600px;">Your ultimate gaming community. Connect, compete, learn, and share!</p>
+        <a href="/signup.html" class="btn-primary" style="margin-top:1rem; padding:0.75rem 2rem; font-size:1.1rem;">Get Started</a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" style="padding: 2rem 1rem;">
+
+        <!-- What We Offer -->
+        <section class="features" style="margin-bottom:3rem;">
+            <h2 style="text-align:center; margin-bottom:1.5rem;">What We Offer</h2>
+            <div class="features-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:1.5rem;">
+                <div class="feature-card" style="padding:1rem; border-radius:12px; background:#2c2c2c; color:white; text-align:center;">
+                    <h3>Community</h3>
+                    <p>Connect with gamers worldwide</p>
+                </div>
+                <div class="feature-card" style="padding:1rem; border-radius:12px; background:#2c2c2c; color:white; text-align:center;">
+                    <h3>Leaderboards</h3>
+                    <p>Track your gaming achievements</p>
+                </div>
+                <div class="feature-card" style="padding:1rem; border-radius:12px; background:#2c2c2c; color:white; text-align:center;">
+                    <h3>Tutorials</h3>
+                    <p>Learn tips and strategies</p>
+                </div>
+                <div class="feature-card" style="padding:1rem; border-radius:12px; background:#2c2c2c; color:white; text-align:center;">
+                    <h3>Chat</h3>
+                    <p>Real-time community discussions</p>
+                </div>
+                <div class="feature-card" style="padding:1rem; border-radius:12px; background:#2c2c2c; color:white; text-align:center;">
+                    <h3>Blog</h3>
+                    <p>Gaming news and insights</p>
+                </div>
+                <div class="feature-card" style="padding:1rem; border-radius:12px; background:#2c2c2c; color:white; text-align:center;">
+                    <h3>Gallery</h3>
+                    <p>Share your gaming moments</p>
+                </div>
             </div>
-            <div style="border: 2px solid #6a0dad; padding: 15px; border-radius: 8px; width: 100%; max-width: 200px;">
-                <h3 style="margin: 0 0 10px 0;"> Rocket League</h3>
-                <p style="margin: 0; font-size: 12px;">Soccer with Cars</p>
-            </div>
-            <div style="border: 2px solid #6a0dad; padding: 15px; border-radius: 8px; width: 100%; max-width: 200px;">
-                <h3 style="margin: 0 0 10px 0;"> Among Us</h3>
-                <p style="margin: 0; font-size: 12px;">Social Deduction</p>
-            </div>
-        </div>
-    </section>
-</main>
-<div id="footer"></div>
+        </section>
+
+        <!-- How to Get Started -->
+        <section class="get-started" style="text-align:center; margin-bottom:3rem;">
+            <h2 style="margin-bottom:1rem;">Get Started</h2>
+            <p style="max-width:700px; margin:auto; font-size:1.1rem;">Navigate using the menu above to explore different sections, join our community, and become part of the 🎮 PixelLumo experience!</p>
+            <a href="/signup.html" class="btn-primary" style="margin-top:1.5rem; padding:0.75rem 2rem; font-size:1.1rem;">Join Now</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" style="background:#1c1c1c; color:white; text-align:center; padding:1.5rem;">
+        <p>&copy; 2025 PixelLumo. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="/js/components-loader.js"></script>
+    <script type="module" src="/js/nav-loader.js"></script>
+    <script type="module" src="/js/auth.js"></script>
 </body>
 </html>

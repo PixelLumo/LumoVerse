@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelLumo - Community Gaming Platform</title>
+    <link rel="stylesheet" href="style.css" id="index-style">
+    <script src="components-loader.js"></script>
+</head>
+<body class="loading-page">
+    <div class="loading-container">
+        <div class="spinner"></div>
+        <p>Loading PixelLumo...</p>
+    </div>
+
+    <script src="base-path.js"></script>
+    <script>
+        // Check if user is logged in
+        const token = localStorage.getItem('token');
+        
+        // Only redirect to home if we have a valid JWT token
+        // Empty tokens or old data means go to login
+        if (token && token.length > 10 && token.includes('.')) {
+            // Token looks valid (JWT has dots), redirect to home
+            window.location.href = window.APP_BASE + 'home.html';
+        } else {
+            // No valid token, clear any old data and go to login
+            localStorage.removeItem('token');
+            localStorage.removeItem('pixellumoUser');
+            sessionStorage.removeItem('pixellumoUser');
+            window.location.href = window.APP_BASE + 'login.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Messages&#127918; PixelLumo</title>
+<script src="base-path.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" id="style-link">
+<script src="components-loader.js"></script>
+<script>
+  
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-content">
+    <h1 class="glow">&#127918; PixelLumo</h1>
+  </div>
+  
+  <!-- NAVIGATION - Loaded from nav.html -->
+  <nav></nav>
+</header>
+
+<main>
+    <section class="fade-in messaging-container">
+        <div class="users-list">
+            <h3>Users</h3>
+            <div id="usersList"></div>
+        </div>
+
+        <div class="chat-area">
+            <div class="chat-header" id="chatHeader">Select a user to start messaging</div>
+            <div id="messageBox" class="empty-chat">
+                <div>👋 Select a user from the list to begin chatting</div>
+            </div>
+            <form id="messageForm" class="message-form" style="display:none;">
+                <input type="text" id="messageInput" placeholder="Type your message..." required>
+                <button type="submit" class="message-send-btn">Send</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 20&#127918; PixelLumo - Gaming Community</p>
+  </div>
+</footer>
+
+<script src="auth.js"></script>
+<script src="nav-loader.js"></script>
+<script src="utils.js"></script>
+<script src="messaging.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutorials&#127918; PixelLumo</title>
+<script src="base-path.js"></script>
+<link rel="stylesheet" href="style.css" id="style-link">
+<script src="components-loader.js"></script>
+<script>
+  
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-content">
+    <h1 class="glow">&#127918; PixelLumo</h1>
+  </div>
+  
+  <!-- NAVIGATION - Loaded from nav.html -->
+  <nav></nav>
+</header>
+
+<main>
+    <section class="fade-in">
+        <h2>Create Tutorial</h2>
+        <form id="tutorialForm" class="tutorial-form">
+            <input type="text" id="tutorialTitle" placeholder="Tutorial Title" required>
+            <textarea id="tutorialContent" placeholder="Write your guide..."></textarea>
+            
+            <div class="social-media-section">
+                <h4>📱 Add Your Contact Info (Optional)</h4>
+                <p style="color: #888; font-size: 12px; margin-bottom: 12px;">Let viewers contact you on your preferred platform</p>
+                
+                <div class="social-options">
+                    <div class="social-option">
+                        <input type="radio" id="social-none" name="socialPlatform" value="none" checked>
+                        <label for="social-none">Don't share</label>
+                    </div>
+                    <div class="social-option">
+                        <input type="radio" id="social-twitter" name="socialPlatform" value="twitter">
+                        <label for="social-twitter">𝕏 Twitter</label>
+                    </div>
+                    <div class="social-option">
+                        <input type="radio" id="social-discord" name="socialPlatform" value="discord">
+                        <label for="social-discord">💬 Discord</label>
+                    </div>
+                    <div class="social-option">
+                        <input type="radio" id="social-twitch" name="socialPlatform" value="twitch">
+                        <label for="social-twitch">📺 Twitch</label>
+                    </div>
+                    <div class="social-option">
+                        <input type="radio" id="social-youtube" name="socialPlatform" value="youtube">
+                        <label for="social-youtube">▶️ YouTube</label>
+                    </div>
+                    <div class="social-option">
+                        <input type="radio" id="social-instagram" name="socialPlatform" value="instagram">
+                        <label for="social-instagram">📸 Instagram</label>
+                    </div>
+                    <div class="social-option">
+                        <input type="radio" id="social-other" name="socialPlatform" value="other">
+                        <label for="social-other">🔗 Other</label>
+                    </div>
+                </div>
+
+                <div id="socialLinkInput" class="social-link-input">
+                    <span class="input-label" id="socialInputLabel">Enter your link:</span>
+                    <input type="text" id="socialLink" placeholder="https://..." style="display: none;">
+                </div>
+            </div>
+            
+            <label style="display:flex;align-items:center;margin-bottom:15px;cursor:pointer;">
+                <input type="checkbox" id="tutorialSupportersOnly" style="width:20px;height:20px;cursor:pointer;margin-right:10px;">
+                <span style="color:#b0a0ff;">Make this tutorial exclusive for supporters (Patreon)</span>
+            </label>
+            <button type="submit">Submit Tutorial</button>
+        </form>
+    </section>
+
+    <section class="fade-in">
+        <h2>All Tutorials</h2>
+        <input type="text" id="tutorialSearch" class="tutorial-search" placeholder="Search tutorials...">
+        <div id="tutorialsContainer"></div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 20&#127918; PixelLumo - Gaming Community</p>
+  </div>
+</footer>
+
+<script src="auth.js"></script>
+<script src="nav-loader.js"></script>
+<script src="tutorials.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
+
+
+
+

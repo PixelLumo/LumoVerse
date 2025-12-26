@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Gallery&#127918; PixelLumo</title>
+<script src="base-path.js"></script>
+<link rel="stylesheet" href="style.css" id="style-link">
+<script src="components-loader.js"></script>
+<script>
+  
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-content">
+    <h1 class="glow">&#127918; PixelLumo</h1>
+  </div>
+  
+  <!-- NAVIGATION - Loaded from nav.html -->
+  <nav></nav>
+</header>
+
+<main>
+    <section class="fade-in">
+        <h2>Upload Image</h2>
+        <form id="galleryForm" class="gallery-form">
+            <input type="text" id="imageTitle" placeholder="Image Title" required>
+            <input type="file" id="imageFile" accept="image/*" required>
+            <button type="submit">Upload Image</button>
+        </form>
+    </section>
+
+    <section class="fade-in">
+        <h2>Gallery</h2>
+        <input type="text" id="gallerySearch" class="gallery-search" placeholder="Search images...">
+        <div id="galleryContainer"></div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 20&#127918; PixelLumo - Gaming Community</p>
+  </div>
+</footer>
+
+<script src="auth.js"></script>
+<script src="nav-loader.js"></script>
+<script src="gallery.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
+
+
+
+

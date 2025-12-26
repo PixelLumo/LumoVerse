@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notifications&#127918; PixelLumo</title>
+<script src="base-path.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" id="style-link">
+<script src="components-loader.js"></script>
+<script>
+  
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-content">
+    <h1 class="glow">&#127918; PixelLumo</h1>
+  </div>
+  
+  <!-- NAVIGATION - Loaded from nav.html -->
+  <nav></nav>
+</header>
+
+<main>
+    <section class="fade-in notifications-container">
+        <div class="notifications-header">
+            <h2>🔔 Notifications</h2>
+            <button class="mark-all-read-btn" onclick="markAllAsRead()">Mark All as Read</button>
+        </div>
+
+        <div class="notification-filters">
+            <button class="filter-btn active" onclick="filterNotifications('all')">All</button>
+            <button class="filter-btn" onclick="filterNotifications('messages')">💬 Messages</button>
+            <button class="filter-btn" onclick="filterNotifications('activity')">📝 Activity</button>
+            <button class="filter-btn" onclick="filterNotifications('achievements')">🏆 Achievements</button>
+        </div>
+
+        <div id="notificationsContainer"></div>
+
+        <div class="empty-notifications" id="emptyState" style="display:none;">
+            <p>No notifications at the moment!</p>
+            <p style="font-size: 12px;">Check back later for community updates</p>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 20&#127918; PixelLumo - Gaming Community</p>
+  </div>
+</footer>
+
+<script src="auth.js"></script>
+<script src="nav-loader.js"></script>
+<script src="storage-service.js"></script>
+<script src="notifications.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
+
+
+
+

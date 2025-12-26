@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard&#127918; PixelLumo</title>
+<script src="base-path.js"></script>
+<link rel="stylesheet" href="style.css" id="style-link">
+<script src="components-loader.js"></script>
+<script>
+  
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-content">
+    <h1 class="glow">&#127918; PixelLumo</h1>
+  </div>
+  
+  <!-- NAVIGATION - Loaded from nav.html -->
+  <nav></nav>
+</header>
+
+<main>
+    <div class="leaderboard-container">
+        <section class="fade-in leaderboard-intro">
+            <h2>Top Contributors</h2>
+            <p>Climb the ranks by posting, commenting, and getting likes from the community. The more you engage, the higher you climb! 🚀</p>
+        </section>
+
+        <section class="fade-in scoring-info">
+            <h3>How Points Work</h3>
+            <div class="scoring-grid">
+                <div class="scoring-item">
+                    <div class="value">3</div>
+                    <div class="label">points per post</div>
+                </div>
+                <div class="scoring-item">
+                    <div class="value">2</div>
+                    <div class="label">points per comment</div>
+                </div>
+                <div class="scoring-item">
+                    <div class="value">1</div>
+                    <div class="label">point per like</div>
+                </div>
+                <div class="scoring-item">
+                    <div class="value">+5</div>
+                    <div class="label">bonus for supporters ★</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <ol class="leaderboard-list" id="leaderboardList"></ol>
+            <div class="empty-leaderboard" id="emptyMessage" style="display:none;">
+                <h3>No posts yet</h3>
+                <p>Be the first to post and start climbing the leaderboard! <a href="community.html">Go to Community Hub</a></p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 20&#127918; PixelLumo - Gaming Community</p>
+  </div>
+</footer>
+
+<script src="auth.js"></script>
+<script src="nav-loader.js"></script>
+<script src="community.js"></script>
+<script src="scripts.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const leaderboard = document.getElementById('leaderboardList');
+    const emptyMessage = document.getElementById('emptyMessage');
+    const posts = JSON.parse(localStorage.getItem('pixellumo_posts') || '[]');
+
+    if(posts.length === 0) {
+        emptyMessage.style.display = 'block';
+        return;
+    }
+
+    // Count posts + comments + likes per user
+    const scores = {};
+    posts.forEach(p => {
+        scores[p.username] = scores[p.username] || {posts: 0, comments: 0, likes: 0, supporter: false};
+        scores[p.username].posts++;
+        scores[p.username].likes += p.likes || 0;
+        if(p.supporter) scores[p.username].supporter = true; // Mark if user is supporter
+        if(p.comments) {
+            p.comments.forEach(c => {
+                scores[c.username] = scores[c.username] || {posts: 0, comments: 0, likes: 0, supporter: false};
+                scores[c.username].comments++;
+                if(c.supporter) scores[c.username].supporter = true; // Mark if commenter is supporter
+            });
+        }
+    });
+
+    // Convert to array and sort by total activity
+    const sorted = Object.entries(scores).map(([username, data]) => {
+        // Base score: 3 per post, 2 per comment, 1 per like
+        let baseScore = data.posts * 3 + data.comments * 2 + data.likes;
+        // Supporter bonus: +5 points if they are a supporter
+        let supporterBonus = data.supporter ? 5 : 0;
+        let totalScore = baseScore + supporterBonus;
+        
+        return {
+            username, 
+            posts: data.posts,
+            comments: data.comments,
+            likes: data.likes,
+            supporter: data.supporter,
+            baseScore: baseScore,
+            supporterBonus: supporterBonus,
+            score: totalScore
+        };
+    }).sort((a, b) => b.score - a.score);
+
+    sorted.forEach((user, idx) => {
+        const li = document.createElement('li');
+        li.className = 'leaderboard-item';
+
+        let rankClass = '';
+        let rankEmoji = (idx + 1) + '';
+        if(idx === 0) { rankClass = 'gold'; rankEmoji = '🥇'; }
+        else if(idx === 1) { rankClass = 'silver'; rankEmoji = '🥈'; }
+        else if(idx === 2) { rankClass = 'bronze'; rankEmoji = '🥉'; }
+
+        // Display supporter badge if applicable
+        const supporterBadge = user.supporter ? ' <span style="color:#ff1493;font-weight:bold;">★ SUPPORTER</span>' : '';
+        const bonusText = user.supporterBonus > 0 ? ` <span style="color:#00ff00;font-weight:bold;">(+${user.supporterBonus} bonus)</span>` : '';
+
+        li.innerHTML = `
+            <div class="leaderboard-rank ${rankClass}">${rankEmoji}</div>
+            <div class="leaderboard-user-info">
+                <div class="leaderboard-username">${user.username}${supporterBadge}</div>
+                <div class="leaderboard-stats">📝 ${user.posts} posts • 💬 ${user.comments} comments • 👍 ${user.likes} likes</div>
+            </div>
+            <div class="leaderboard-score">${user.score}${bonusText}</div>
+        `;
+        leaderboard.appendChild(li);
+    });
+});
+</script>
+</body>
+</html>
+
+
+
+

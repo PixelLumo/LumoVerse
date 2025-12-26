@@ -375,10 +375,10 @@ app.get('/api/messaging/users', verifyToken, (req, res) => {
             `
             SELECT id, username, avatar, allow_messages
             FROM users
-            WHERE allow_messages = 1 AND username != ?
+            WHERE allow_messages = 1
             ORDER BY username ASC
             `,
-            [req.user.username],
+            [],
             (err, rows) => {
                 if (err) return res.status(500).json({ error: err.message });
                 res.json(rows || []);

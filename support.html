@@ -137,8 +137,14 @@
 
 <body>
 
+
+<!-- HEADER -->
 <header>
-    <h1 class="glow">🎮 PixelLumo</h1>
+    <div class="header-content">
+        <h1 class="glow">🎮 PixelLumo</h1>
+    </div>
+    <!-- NAVIGATION - Loaded from nav.html -->
+    <nav></nav>
 </header>
 
 <main>
@@ -198,15 +204,22 @@
 </section>
 
 <section class="support-cta">
-    <a href="https://www.patreon.com/" target="_blank">
+    <a href="https://www.patreon.com/" target="_blank" style="font-size: 1.2em; margin-bottom: 10px;">
         ❤️ Support PixelLumo on Patreon
     </a>
+    <div style="margin-top: 20px;">
+        <a href="mailto:support@pixellumo.com" style="color:#ff1493; text-decoration:underline; font-size:1em;">Contact Support</a>
+        &nbsp;|&nbsp;
+        <a href="https://discord.gg/yourdiscord" target="_blank" style="color:#6a0dad; text-decoration:underline; font-size:1em;">Join our Discord</a>
+    </div>
 </section>
 
 </main>
 
 <footer>
     <p>&copy; 2025 PixelLumo</p>
+    <script src="components-loader.js"></script>
+    <script src="nav-loader.js"></script>
 </footer>
 
 </body>

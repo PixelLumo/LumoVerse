@@ -12,10 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Get username from URL parameter
     const urlParams = new URLSearchParams(window.location.search);
-    const username = urlParams.get('u') || urlParams.get('user');
+    let username = urlParams.get('u') || urlParams.get('user');
+
+    // If no username in URL, show current user's profile if logged in
+    if (!username && currentUser && currentUser.username) {
+        username = currentUser.username;
+    }
 
     if (!username) {
-        showError('No user specified. Please use profile.html?u=username');
+        showError('No user specified and not logged in. Please use profile.html?u=username or log in.');
         return;
     }
 

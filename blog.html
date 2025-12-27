@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    fetch('nav.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('nav-placeholder').innerHTML = data);
+  </script>
+  <div class="hero-box">
+    <h1 class="glow pink-text">Blog</h1>
+    <p class="glow">Latest Blog Updates</p>
+  </div>
+  <main>
+    <div class="centered-box page-flair">
+      <article class="blog-article">
+        <h3 class="glow">Minecraft Adventure</h3>
+        <p>We’re starting a new survival challenge with friends! Expect epic builds, funny fails, and creative
+          competitions every week.</p>
+      </article>
+      <article class="blog-article">
+        <h3 class="glow">Rocket League Tournaments</h3>
+        <p>Daily matches are live! Ranked games and mini-tournaments with prizes for top players. Join in and show your
+          skills!</p>
+      </article>
+      <article class="blog-article">
+        <h3 class="glow">Fallout Stories</h3>
+        <p>Sharing hilarious and epic solo adventures through the wasteland. Watch out for crazy glitches and random
+          encounters!</p>
+      </article>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+  </script>
+
+</body>
+
+</html>

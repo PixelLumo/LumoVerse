@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Community - PixelLumo</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div id="header-placeholder"></div>
+	<div id="nav-placeholder"></div>
+	<script>
+		fetch('header.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('header-placeholder').innerHTML = data);
+		fetch('nav.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('nav-placeholder').innerHTML = data);
+	</script>
+	<div class="hero-box">
+		<h1 class="glow pink-text">Community</h1>
+		<p>Connect with gamers worldwide, share content, and participate in events.</p>
+	</div>
+	<main>
+		<div class="centered-box page-flair">
+			<h2>Community Events & Gaming</h2>
+			<section id="rocket-league">
+				<h3><a class="game-link" href="https://store.steampowered.com/app/252950/Rocket_League/" target="_blank">Rocket
+						League</a></h3>
+				<p>Daily matches, ranked battles, and surprise mini-tournaments keep the competition alive. Climb the
+					leaderboard, show off your skills, or just join for fun, every day brings a new challenge!</p>
+			</section>
+			<section id="minecraft">
+				<h3><a class="game-link" href="https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc"
+						target="_blank">Minecraft</a></h3>
+				<p>Join our creative and survival worlds! Build massive castles, design crazy mini-games, and take on weekly
+					challenges with friends. Random events like “build-offs” and “treasure hunts” keep things unpredictable and
+					fun!</p>
+			</section>
+			<section id="fallout">
+				<h3><a class="game-link" href="https://store.steampowered.com/search/?term=fallout" target="_blank">Fallout</a>
+				</h3>
+				<p>Embark on solo adventures through the wasteland. Fallout may not be co-op, but the community shares tips,
+					funny moments, and epic stories. Expect random encounters, glitches, and laugh-out-loud moments!</p>
+			</section>
+			<section id="terraria">
+				<h3><a class="game-link" href="https://store.steampowered.com/app/105600/Terraria/" target="_blank">Terraria</a>
+				</h3>
+				<p>Explore, fight, and craft together! Join in themed nights, weekly challenges, and spontaneous events that
+					bring chaos and fun to every session.</p>
+			</section>
+			<section id="communityFeed"
+				style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:1rem;">
+				<!-- Community feed content -->
+			</section>
+		</div>
+	</main>
+	<!-- JS will populate community posts -->
+	</section>
+	</main>
+	<div id="footer-placeholder"></div>
+	<script>
+		fetch('footer.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('footer-placeholder').innerHTML = data);
+	</script>
+	<script type="module" src="/js/community.js"></script>
+</body>
+
+</html>

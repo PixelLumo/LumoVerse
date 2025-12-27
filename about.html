@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+  <div id="nav-placeholder"></div>
+
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    fetch('nav.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('nav-placeholder').innerHTML = data);
+  </script>
+  <div class="hero-box">
+    <h1 class="glow pink-text">About Lumo the Creator</h1>
+    <p class="glow">Learn more about Lumo</p>
+  </div>
+  <main>
+    <div class="centered-box page-flair">
+      <p>Hey there! I’ve been gaming for as long as I can remember — starting with mobile games during school, then
+        diving
+        headfirst into PlayStation adventures, and now conquering the world of PC gaming. I’m all about building epic
+        worlds, teaming up with friends, and finding those unforgettable gaming moments that make you laugh, shout, or
+        just stare at the screen in awe.</p>
+      <p>I’m obsessed with Supercell games, Minecraft, Rocket League, Terraria, Fallout, and tons of other adventures.
+        In
+        <strong>Minecraft</strong>, I love creating massive builds and tackling wild challenges with my friends —
+        sometimes things get chaotic, but that’s part of the fun! <em>Rocket League</em> keeps me on my toes with daily
+        matches, ranked games, and spontaneous tournaments that always bring surprises. <strong>Fallout</strong>? A solo
+        wasteland adventure, full of random glitches and hilarious moments — definitely not co-op, but still a blast.
+      </p>
+      <p>When I’m not gaming, I’m a movie and series junkie. Space, adventure, fantasy, and sci-fi are my playgrounds.
+        Favorites include <strong>Lucifer</strong>, <strong>The 100</strong>, and many more that keep me glued to the
+        screen.</p>
+      <p>Oh, and I’m a die-hard <strong>Spurs</strong> fan — don’t judge me, we all have our teams! I’m all about
+        community, connecting with fellow gamers, and creating a space where everyone can share in the fun, the chaos,
+        and
+        the victories. Whether you want to join a Minecraft build, battle it out in Rocket League, or just chat about
+        the
+        latest game or series, you’re always welcome here.</p>
+      <p>Gaming isn’t just a hobby for me; it’s a way to bring people together, share laughs, and make memories that
+        last
+        far beyond the screen. So grab your controller, keyboard, or phone — let’s make every session legendary!</p>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+  </script>
+</body>
+
+</html>

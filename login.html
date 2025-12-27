@@ -1,81 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login 🎮 PixelLumo</title>
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/fonts.css">
-<body class="auth-page">
-<div id="nav"></div>
-<script type="module" src="/js/components-loader.js"></script>
-<script type="module" src="/js/nav-loader.js"></script>
-<script type="module" src="/js/auth.js"></script>
 
-
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - PixelLumo</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>PixelLumo Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div id="nav"></div>
 
-    <main class="container" style="max-width:400px; margin:4rem auto; padding:2rem; background:#2c2c2c; color:white; border-radius:12px;">
-        <h1 style="text-align:center; margin-bottom:1.5rem;">Login</h1>
-        <form id="loginForm">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:6px;">
+    <div id="header-placeholder"></div>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="blog.html">Blog</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+    <main>
+        <form>
+            <h2>Login</h2>
+            <button id="show-nav" style="margin:1.5rem auto;display:block;">Show Navigation</button>
+            <div id="nav-placeholder"></div>
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required style="width:100%; margin-bottom:1rem; padding:0.5rem; border-radius:6px;">
+            <main>
+                <form>
+                    <h2>Login</h2>
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <input type="submit" value="Login">
+                </form>
+            </main>
 
-            <button type="submit" class="btn-primary" style="width:100%; padding:0.75rem;">Login</button>
-        </form>
-        <p style="text-align:center; margin-top:1rem;">
-            <a href="/forgot-password.html" style="color:#f0a500;">Forgot password?</a>
-        </p>
-        <p style="text-align:center; margin-top:0.5rem;">
-            Don't have an account? <a href="/signup.html" style="color:#f0a500;">Sign Up</a>
-        </p>
-    </main>
+            <div id="footer-placeholder"></div>
 
-    <script type="module" src="/js/components-loader.js"></script>
-    <script type="module" src="/js/nav-loader.js"></script>
-    <script type="module" src="/js/auth.js"></script>
-</body>
-</html>
-
-<div class="auth-container fade-in">
-    <div class="login-header">
-        <h1 class="glow">🎮 PixelLumo</h1>
-        <p>Gaming Community Hub</p>
-    </div>
-    <form id="loginForm">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit">Login</button>
-    </form>
-    <div id="errorMessage" class="error-message"></div>
-    <a href="/pages/forgot-password.html">Forgot password?</a>
-    <a href="/pages/signup.html">Sign up</a>
-</div>
-<div id="footer"></div>
-<script>
-  // Example: addEventListener for login
-  document.getElementById('loginForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    // TODO: Call backend login endpoint with CSRF token
-  });
-</script>
-</body>
-</html>
+            <script>
+                fetch('nav.html')
+                    .then(response => response.text())
+                    .then(data => document.getElementById('nav-placeholder').innerHTML = data);
+                fetch('footer.html')
+                    .then(response => response.text())
+                    .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+                document.getElementById('show-nav').onclick = function () {
+                    fetch('nav.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('nav-placeholder').innerHTML = data;
+                            document.getElementById('show-nav').style.display = 'none';
+                        });
+                };
+            </script>

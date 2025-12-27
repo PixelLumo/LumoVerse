@@ -4,13 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - PixelLumo</title>
+    <title>PixelLumo Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+
     <div id="header-placeholder"></div>
     <div id="nav-placeholder"></div>
+
+    <main>
+        <div class="hero-box">
+            <h1 class="glow pink-text">Welcome to PixelLumo</h1>
+        </div>
+        <div class="centered-box page-flair">
+            <p class="trebuchet">I play lots of Supercell games, and I’m always up for a fun challenge with friends
+                online! Feel free to join and we can battle it out in Clash Royale, Brawl Stars, and more!</p>
+            <p class="trebuchet">Check out my blog for the latest updates, tips, and tricks on your favorite games.
+                Let’s level up</p>
+        </div>
+    </main>
     <script>
         fetch('header.html')
             .then(response => response.text())
@@ -19,30 +33,15 @@
             .then(response => response.text())
             .then(data => document.getElementById('nav-placeholder').innerHTML = data);
     </script>
-    <div class="hero-box">
-        <h1 class="glow pink-text">Create an Account</h1>
-    </div>
-    <main class="centered-box" style="max-width:400px;">
-        <form id="signupForm">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit" class="btn-primary">Sign Up</button>
-        </form>
-        <p>
-            Already have an account? <a href="/login.html">Login</a>
-        </p>
-    </main>
+
+
     <div id="footer-placeholder"></div>
     <script>
         fetch('footer.html')
             .then(response => response.text())
             .then(data => document.getElementById('footer-placeholder').innerHTML = data);
     </script>
-    <script type="module" src="/js/auth.js"></script>
+
 </body>
 
 </html>

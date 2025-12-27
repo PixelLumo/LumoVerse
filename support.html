@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Support</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div id="header-placeholder"></div>
+	<div id="nav-placeholder"></div>
+	<script>
+		fetch('header.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('header-placeholder').innerHTML = data);
+		fetch('nav.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('nav-placeholder').innerHTML = data);
+	</script>
+	<div class="hero-box">
+		<h1 class="glow pink-text">Support & Patreon</h1>
+	</div>
+	<main>
+		<div class="centered-box page-flair">
+			<p class="glow">Find help, resources, and ways to support LumoVerse!</p>
+			<section style="margin-bottom:2em;">
+				<h2>Support</h2>
+				<div class="support-links"
+					style="display:flex; flex-direction:column; align-items:center; gap:1em; margin:1em 0;">
+					<a class="support-link flair-link" href="mailto:taineh42@gmail.com" target="_blank">
+						<span>Email: taineh42@gmail.com</span>
+					</a>
+					<a class="support-link flair-link" href="#" target="_blank"
+						style="display:flex; align-items:center; gap:0.5em; text-decoration:none; color:#ffeb3b; font-weight:bold;">
+						<span>FAQ: Frequently Asked Questions</span>
+					</a>
+					<a class="support-link flair-link" href="community.html" target="_blank"
+						style="display:flex; align-items:center; gap:0.5em; text-decoration:none; color:#ffeb3b; font-weight:bold;">
+						<span>Community: Join our Community</span>
+					</a>
+				</div>
+			</section>
+			<section>
+				<h2>Patreon</h2>
+				<p>Support us on Patreon and unlock exclusive benefits!</p>
+				<a class="game-link" href="https://www.patreon.com/yourpatreon" target="_blank">Become a Patron</a>
+			</section>
+		</div>
+	</main>
+	<div id="footer-placeholder"></div>
+	<script>
+		fetch('footer.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('footer-placeholder').innerHTML = data);
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Leaderboard - PixelLumo</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div id="header-placeholder"></div>
+	<div id="nav-placeholder"></div>
+	<script>
+		fetch('header.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('header-placeholder').innerHTML = data);
+		fetch('nav.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('nav-placeholder').innerHTML = data);
+	</script>
+	<div class="hero-box">
+		<h1 class="glow pink-text">Leaderboard</h1>
+		<p>Check out the top gamers in the PixelLumo community!</p>
+	</div>
+	<main>
+		<div class="centered-box leaderboard-flair">
+			<section style="margin-bottom:2em; text-align:left;">
+				<h2>How to Earn Points & Get on the Leaderboard</h2>
+				<ul style="margin-left:1.5em;">
+					<li>Win matches and tournaments in featured games (Rocket League, Minecraft, Terraria, etc).</li>
+					<li>Participate in daily and weekly challenges.</li>
+					<li>Complete special community events and quests.</li>
+					<li>Share tips, guides, or content that gets upvoted by the community.</li>
+					<li>Be active and helpful in chat and forums (bonus points for positive contributions).</li>
+				</ul>
+				<p style="margin-top:1em;">Top scorers are updated automatically. Stay active, play fair, and climb the ranks!
+				</p>
+				<p style="margin-top:1em;">Top scorers are updated automatically every few seconds.<br>
+					Use the <strong>+ Add Player/Score</strong> link below the leaderboard to add new entries (demo only).</p>
+			</section>
+			<section id="leaderboard" style="overflow-x:auto;">
+				<table style="width:100%; border-collapse:collapse; color:white;">
+					<thead>
+						<tr>
+							<th style="padding:0.5rem; border-bottom:1px solid #555;">Rank</th>
+							<th style="padding:0.5rem; border-bottom:1px solid #555;">Player</th>
+							<th style="padding:0.5rem; border-bottom:1px solid #555;">Score</th>
+						</tr>
+					</thead>
+					<tbody id="leaderboardTable">
+						<!-- JS populates leaderboard here -->
+					</tbody>
+				</table>
+			</section>
+		</div>
+	</main>
+	<div id="footer-placeholder"></div>
+	<script>
+		fetch('footer.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('footer-placeholder').innerHTML = data);
+	</script>
+	<script type="module" src="/js/leaderboard.js"></script>
+</body>
+
+</html>

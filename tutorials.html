@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Tutorials</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div id="header-placeholder"></div>
+	<div id="nav-placeholder"></div>
+	<script>
+		fetch('header.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('header-placeholder').innerHTML = data);
+		fetch('nav.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('nav-placeholder').innerHTML = data);
+	</script>
+	<div class="hero-box">
+		<h1 class="glow pink-text">Tutorials</h1>
+	</div>
+	<main>
+		<div class="centered-box page-flair">
+			<p>Browse tutorials and guides to get started.</p>
+			<hr style="margin:2em 0;">
+			<h2>Upload a Tutorial</h2>
+			<form id="tutorial-upload-form"
+				style="display:flex; flex-direction:column; gap:1em; max-width:500px; margin:auto;"
+				enctype="multipart/form-data">
+				<label>
+					Title
+					<input type="text" name="title" required placeholder="Tutorial title">
+				</label>
+				<label>
+					Game
+					<input type="text" name="game" required placeholder="Game (e.g. Minecraft, Rocket League)">
+				</label>
+				<label>
+					Short Description
+					<textarea name="description" rows="2" required placeholder="Brief description of your tutorial"></textarea>
+				</label>
+				<label>
+					Tutorial File
+					<input type="file" name="file" required>
+				</label>
+				<button type="submit">Upload Tutorial</button>
+			</form>
+		</div>
+	</main>
+	<div id="footer-placeholder"></div>
+	<script>
+		fetch('footer.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('footer-placeholder').innerHTML = data);
+	</script>
+</body>
+
+</html>

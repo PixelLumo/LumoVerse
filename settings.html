@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Settings</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div id="header-placeholder"></div>
+	<div id="nav-placeholder"></div>
+	<script>
+		fetch('header.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('header-placeholder').innerHTML = data);
+		fetch('nav.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('nav-placeholder').innerHTML = data);
+	</script>
+	<div class="hero-box">
+		<h1 class="glow pink-text">Settings</h1>
+	</div>
+	<main>
+		<div class="centered-box page-flair">
+			<form class="settings-form" style="display:flex; flex-direction:column; gap:1.5em; max-width:500px; margin:auto;">
+				<h2>Edit Profile</h2>
+				<label>
+					Display Name
+					<input type="text" name="displayName" placeholder="Your display name" required>
+				</label>
+				<label>
+					Email
+					<input type="email" name="email" placeholder="Your email" required>
+				</label>
+				<label>
+					Avatar
+					<input type="url" name="avatar" placeholder="Avatar image URL">
+				</label>
+				<label>
+					Bio
+					<textarea name="bio" rows="2" placeholder="Tell us about yourself"></textarea>
+				</label>
+				<h2>Account Security</h2>
+				<label>
+					Change Password
+					<input type="password" name="newPassword" placeholder="New password">
+				</label>
+				<label>
+					Confirm Password
+					<input type="password" name="confirmPassword" placeholder="Confirm new password">
+				</label>
+				<h2>Preferences</h2>
+				<label>
+					Privacy
+					<select name="privacy">
+						<option value="public">Public</option>
+						<option value="private">Private</option>
+						<option value="friends">Friends Only</option>
+					</select>
+				</label>
+				<label>
+					Notifications
+					<select name="notifications">
+						<option value="all">All</option>
+						<option value="mentions">Mentions Only</option>
+						<option value="none">None</option>
+					</select>
+				</label>
+				<button type="submit" class="settings-save-btn">Save Changes</button>
+			</form>
+		</div>
+	</main>
+
+	<div id="footer-placeholder"></div>
+	<script>
+		fetch('footer.html')
+			.then(response => response.text())
+			.then(data => document.getElementById('footer-placeholder').innerHTML = data);
+	</script>
+
+</body>
+
+</html>

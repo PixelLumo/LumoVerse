@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +8,36 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/fonts.css">
 </head>
-<body class="loading-page">
-    <div id="nav"></div>
 
+<body class="loading-page">
+    <div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('nav-placeholder').innerHTML = data);
+    </script>
     <header class="hero" style="
-        background: url('/assets/images/landing-bg.jpg') no-repeat center/cover; 
+        background: url('/assets/images/landing-bg.jpg') no-repeat center/cover;
         height: 70vh; display:flex; align-items:center; justify-content:center; flex-direction:column; color:white; text-align:center;
     ">
         <h1 style="font-size:3rem;">Welcome to PixelLumo</h1>
-        <p style="font-size:1.2rem; max-width:600px;">Join the ultimate gaming community — compete, learn, and share your passion!</p>
+        <p style="font-size:1.2rem; max-width:600px;">Join the ultimate gaming community — compete, learn, and share
+            your passion!</p>
         <div style="margin-top:1.5rem;">
-            <a href="/pages/signup.html" class="btn-primary" style="margin-right:1rem;">Sign Up</a>
-            <a href="/pages/login.html" class="btn-secondary">Login</a>
+            <a href="signup.html" class="btn-primary" style="margin-right:1rem;">Sign Up</a>
+            <a href="login.html" class="btn-secondary">Login</a>
         </div>
     </header>
-
-    <footer id="footer" style="background:#1c1c1c; color:white; text-align:center; padding:1.5rem;">
-        <p>&copy; 2025 PixelLumo. All Rights Reserved.</p>
-    </footer>
-
-    <script type="module">
-      import { loadComponent } from '/js/components-loader.js';
-      loadComponent('nav', '/components/nav.html');
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
     </script>
-    <script type="module" src="/js/nav-loader.js"></script>
-    <script type="module" src="/js/auth.js"></script>
 </body>
+
 </html>

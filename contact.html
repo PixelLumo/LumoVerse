@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    fetch('nav.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('nav-placeholder').innerHTML = data);
+  </script>
+  <div class="hero-box">
+    <h1 class="glow pink-text">Contact Us</h1>
+    <p class="glow">Get in touch with our team for support or inquiries.</p>
+  </div>
+  <main>
+    <div class="centered-box page-flair" style="text-align:center;">
+      <p style="margin-bottom:1em;">Follow me:</p>
+      <div class="contact-links"
+        style="display:flex; justify-content:center; gap:2em; align-items:center; flex-wrap:wrap;">
+        <a class="contact-link" href="https://www.twitch.tv/lumothegamer" target="_blank"
+          style="display:flex; align-items:center; gap:0.5em; text-decoration:none; color:#ffeb3b;">
+          <img src="assets/twitch-icon.png" alt="Twitch" width="28" height="28">
+          <span>Twitch</span>
+        </a>
+        <a class="contact-link" href="https://x.com/lizzy_lumo" target="_blank"
+          style="display:flex; align-items:center; gap:0.5em; text-decoration:none; color:#ffeb3b;">
+          <img src="assets/twitter-icon.png" alt="X/Twitter" width="28" height="28">
+          <span>X/Twitter</span>
+        </a>
+        <a class="contact-link" href="https://www.instagram.com/_taine_hancke/" target="_blank"
+          style="display:flex; align-items:center; gap:0.5em; text-decoration:none; color:#ffeb3b;">
+          <img src="assets/instagram-icon.png" alt="Instagram" width="28" height="28">
+          <span>Instagram</span>
+        </a>
+        <a class="contact-link" href="https://www.youtube.com/@lumothegamer" target="_blank"
+          style="display:flex; align-items:center; gap:0.5em; text-decoration:none; color:#ffeb3b;">
+          <img src="assets/youtube-icon.png" alt="YouTube" width="28" height="28">
+          <span>YouTube</span>
+        </a>
+        <a class="contact-link" href="https://discord.gg/yourdiscord" target="_blank"
+          style="display:flex; align-items:center; gap:0.5em; text-decoration:none; color:#ffeb3b;">
+          <img src="assets/discord-icon.png" alt="Discord" width="28" height="28">
+          <span>Discord</span>
+        </a>
+      </div>
+      <hr style="margin:2.5em 0 2em 0; border:0; border-top:1.5px solid #ff1493;">
+      <h2 class="glow pink-text" style="margin-bottom:1em;">Contact Form</h2>
+      <form action="#" method="post" style="max-width:420px; margin:0 auto; text-align:left;">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required placeholder="How can I help you?"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+  </script>
+</body>
+
+</html>

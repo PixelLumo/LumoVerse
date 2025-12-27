@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Community - PixelLumo</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -53,7 +53,9 @@
 			</section>
 			<section id="communityFeed"
 				style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:1rem;">
-				<!-- Community feed content -->
+				<p style="color:#555; font-style:italic; text-align:center;">
+					Community posts will be displayed in the upcoming App version.
+				</p>
 			</section>
 		</div>
 	</main>
@@ -66,7 +68,7 @@
 			.then(response => response.text())
 			.then(data => document.getElementById('footer-placeholder').innerHTML = data);
 	</script>
-	<script type="module" src="/js/community.js"></script>
+	<!-- <script type="module" src="/js/community.js"></script> -->
 </body>
 
 </html>

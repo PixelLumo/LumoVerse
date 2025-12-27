@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Profile</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -22,35 +22,20 @@
 		<h1 class="glow pink-text">Profile</h1>
 	</div>
 	<main>
-		<div class="centered-box page-flair" style="max-width:500px; margin:auto; text-align:center;">
-			<img id="profile-avatar" src="assets/default-avatar.png" alt="User Avatar"
-				style="width:96px; height:96px; border-radius:50%; margin-bottom:1em;">
-			<h2 id="profile-displayName">Display Name</h2>
-			<p id="profile-email" style="color:#1a237e; font-size:1.1em; margin:0.5em 0;">user@email.com</p>
-			<p id="profile-bio" style="font-style:italic; color:#444;">This is your bio. Tell us about yourself!</p>
-			<div style="margin:1.5em 0; text-align:left;">
+		<div class="centered-box page-flair profile-static" style="max-width:500px; margin:auto; text-align:center;">
+			<img id="profile-avatar" src="assets/default-avatar.png" alt="User Avatar" class="profile-avatar">
+			<h2 id="profile-displayName">LumoGamer</h2>
+			<p id="profile-email" class="profile-email">lumo@example.com</p>
+			<p id="profile-bio" class="profile-bio">Competitive gamer, streamer, and community builder. Always up for a
+				challenge!</p>
+			<div class="profile-meta">
 				<strong>Privacy:</strong> <span id="profile-privacy">Public</span><br>
 				<strong>Notifications:</strong> <span id="profile-notifications">All</span>
 			</div>
-			<a href="settings.html" class="game-link" style="margin-top:1em;">Edit Profile & Settings</a>
+			<a href="coming-soon.html" class="game-link" style="margin-top:1em;">Edit Profile & Settings (App)</a>
+			<p style="margin-top:2em; color:#ff1493; font-weight:bold;">Profile features coming soon in the App!</p>
 		</div>
-		<script>
-			// Example: Replace with real user data from backend or local storage
-			const user = {
-				avatar: 'assets/default-avatar.png',
-				displayName: 'LumoGamer',
-				email: 'lumo@example.com',
-				bio: 'Competitive gamer, streamer, and community builder. Always up for a challenge!',
-				privacy: 'Public',
-				notifications: 'All'
-			};
-			document.getElementById('profile-avatar').src = user.avatar;
-			document.getElementById('profile-displayName').textContent = user.displayName;
-			document.getElementById('profile-email').textContent = user.email;
-			document.getElementById('profile-bio').textContent = user.bio;
-			document.getElementById('profile-privacy').textContent = user.privacy;
-			document.getElementById('profile-notifications').textContent = user.notifications;
-		</script>
+
 	</main>
 
 	<div id="footer-placeholder"></div>

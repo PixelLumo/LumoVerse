@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Gallery - PixelLumo</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -26,32 +26,15 @@
 	<main>
 		<div class="centered-box page-flair">
 			<p>Share your best moments! Upload screenshots, art, or videos with a title, game, and description.</p>
-			<hr style="margin:2em 0;">
-			<h2>Upload to Gallery</h2>
-			<form id="gallery-upload-form" style="display:flex; flex-direction:column; gap:1em; max-width:500px; margin:auto;"
-				enctype="multipart/form-data">
-				<label>
-					Title
-					<input type="text" name="title" required placeholder="Image or video title">
-				</label>
-				<label>
-					Game
-					<input type="text" name="game" required placeholder="Game (e.g. Minecraft, Rocket League)">
-				</label>
-				<label>
-					Short Description
-					<textarea name="description" rows="2" required placeholder="Brief description"></textarea>
-				</label>
-				<label>
-					Upload File
-					<input type="file" name="file" accept="image/*,video/*" required>
-				</label>
-				<button type="submit">Upload</button>
-			</form>
+			<p style="color:#555; font-style:italic; margin-top:1em;">
+				Gallery uploads and images will be available in the upcoming App version.
+			</p>
 			<hr style="margin:2em 0;">
 			<section id="galleryGrid"
 				style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:1rem;">
-				<!-- JS will populate gallery images here -->
+				<img src="assets/demo1.jpg" alt="Demo Screenshot" style="width:100%; border-radius:8px;">
+				<img src="assets/demo2.jpg" alt="Demo Screenshot" style="width:100%; border-radius:8px;">
+				<img src="assets/demo3.jpg" alt="Demo Screenshot" style="width:100%; border-radius:8px;">
 			</section>
 		</div>
 	</main>
@@ -61,7 +44,7 @@
 			.then(response => response.text())
 			.then(data => document.getElementById('footer-placeholder').innerHTML = data);
 	</script>
-	<script type="module" src="/js/gallery.js"></script>
+	<!-- <script type="module" src="/js/gallery.js"></script> -->
 </body>
 
 </html>

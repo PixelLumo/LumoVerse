@@ -5,48 +5,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PixelLumo Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
     <div id="header-placeholder"></div>
-    <nav>
-        <a href="home.html">Home</a>
-        <a href="profile.html">Profile</a>
-        <a href="blog.html">Blog</a>
-        <a href="settings.html">Settings</a>
-    </nav>
-    <main>
-        <form>
-            <h2>Login</h2>
-            <button id="show-nav" style="margin:1.5rem auto;display:block;">Show Navigation</button>
-            <div id="nav-placeholder"></div>
+    Thanks — this chat-messaging.html cannot work on GitHub Pages as-is because it’s fully dependent on
+    backend/real-time JS. Let’s break it down.
 
-            <main>
-                <form>
-                    <h2>Login</h2>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <input type="submit" value="Login">
-                </form>
-            </main>
+    ✅ What is static-safe
 
-            <div id="footer-placeholder"></div>
+    Header/nav/footer fetch → ✅
 
+    CSS link → ✅
+
+    HTML layout → ✅
+
+    Forms, inputs, <div> containers → ✅ (will display, just static)
+
+        ❌ Issues for GitHub Pages
+        1. Real-time chat & private messaging
+        <form id="chatForm"> ... </form>
+        <form id="messageForm"> ... </form>
+        <script type="module" src="messaging.js"></script>
+
+
+        messaging.js likely contains WebSocket, API fetches, or backend calls → ❌
+
+        GitHub Pages cannot run Node.js, WebSocket server, or API server → forms will do nothing
+
+        ✅ Fix for static version
+
+        Disable forms:
+
+        <form id="chatForm" onsubmit="return false;">
+
+
+            Replace input/submit with a static “Coming Soon” message:
+
+            <div
+                style="height:220px; background:#fff2; border-radius:12px; padding:1em; display:flex; align-items:center; justify-content:center; color:#555;">
+                Real-time chat available in the App
+            </div>
+
+
+            Do the same for private messaging.
+
+            2. JS module
+            <script type="module" src="messaging.js"></script>
+
+            Remove for static build.
+
+            Replace with a placeholder div:
+
+            <p style="text-align:center; color:#777; margin-top:1em;">Messaging functionality will be available in the
+                App.</p>
+
+            3. Inline styling
+
+            Works, but optional to move to CSS
+
+            Not a blocker for GitHub Pages
+
+            4. Asset paths
+
+            None are used inside this file → ✅ safe
+
+            ✅ Static-ready verdict
+            Area Status Action
+            Layout/HTML ✅ Keep
+            Chat forms ❌ Disable / replace with placeholder
+            Private messaging ❌ Disable / replace with placeholder
+            messaging.js ❌ Remove for static
+            Header/nav/footer ✅ Keep
+            Recommended static placeholder example
+            <section>
+                <h2>Live Chat Room</h2>
+                <div
+                    style="height:220px; background:#fff2; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#555;">
+                    Real-time chat available in the App
+                </div>
+            </section>
+
+
+            Repeat for private messaging.
+
+            Once this is done, the page will load correctly on GitHub Pages and you can later re-enable real-time chat
+            in the downloadable app.
+
+            Next, we should check notifications.html, since notifications are also usually backend-dependent.
+
+            Do you want to send that one next? <div id="nav-placeholder"></div>
             <script>
                 fetch('nav.html')
                     .then(response => response.text())
                     .then(data => document.getElementById('nav-placeholder').innerHTML = data);
+            </script>
+            <main>
+                <h2>Login</h2>
+                <a href="coming-soon.html" class="btn-primary"
+                    style="display:inline-block; margin:2rem auto; padding:1em 2em; font-size:1.2em; border-radius:1em; background:linear-gradient(90deg,#e040fb 0%,#7c4dff 100%); color:#fff; text-decoration:none; box-shadow:0 0 8px #e040fb88;">Launch
+                    App</a>
+            </main>
+            <div id="footer-placeholder"></div>
+            <script>
                 fetch('footer.html')
                     .then(response => response.text())
                     .then(data => document.getElementById('footer-placeholder').innerHTML = data);
-                document.getElementById('show-nav').onclick = function () {
-                    fetch('nav.html')
-                        .then(response => response.text())
-                        .then(data => {
-                            document.getElementById('nav-placeholder').innerHTML = data;
-                            document.getElementById('show-nav').style.display = 'none';
-                        });
-                };
             </script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - PixelLumo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+    <div id="footer-placeholder"></div>
+    <script src="js/layout.js"></script>
+
+    <main>
+        <div class="centered-box page-flair" style="max-width:400px; margin:auto; text-align:center;">
+            <h2>Login</h2>
+            <form onsubmit="handleLogin(event)" style="display:flex; flex-direction:column; gap:1em;">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Or create a new account:</p>
+            <form id="signup-form" style="display:flex; flex-direction:column; gap:1em;">
+                <input type="text" placeholder="Display Name" name="displayName" required>
+                <input type="email" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p id="login-status" style="color:red; margin-top:1em;"></p>
+        </div>
+    </main>
+
+    <!-- Footer is loaded by layout.js -->
+
+    <script type="module">
+        import { signIn, signUp, startOnlineHeartbeat, login } from './js/auth.js'
+
+        window.handleLogin = (e) => {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            login(email);
+        };
+
+        const loginForm = document.getElementById('login-form')
+        loginForm.addEventListener('submit', async e => {
+            e.preventDefault()
+            const email = loginForm.email.value
+            const password = loginForm.password.value
+            try {
+                await signIn(email, password);
+                startOnlineHeartbeat();
+                location.href = 'profile.html'
+            } catch (err) {
+                document.getElementById('login-status').textContent = err.message
+            }
+        })
+
+        const signupForm = document.getElementById('signup-form')
+        signupForm.addEventListener('submit', async e => {
+            e.preventDefault()
+            const email = signupForm.email.value
+            const password = signupForm.password.value
+            const displayName = signupForm.displayName.value
+            try {
+                await signUp(email, password, displayName);
+                startOnlineHeartbeat();
+                location.href = 'profile.html'
+            } catch (err) {
+                document.getElementById('login-status').textContent = err.message
+            }
+        })
+    </script>
+</body>
+
+</html>

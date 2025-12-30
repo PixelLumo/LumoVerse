@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📝 Posts | PixelLumo Blog</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+  <div id="nav-placeholder"></div>
+  <script src="/js/layout.js"></script>
+  <div class="hero-box">
+    <h1 class="glow pink-text">📝 Posts</h1>
+    <p class="glow">Ongoing stories, updates, and tutorials from the PixelLumo community.</p>
+  </div>
+  <main>
+    <!-- Categories -->
+    <section class="centered-box page-flair" style="margin-bottom:2rem;">
+      <div style="display:flex; flex-wrap:wrap; gap:0.7em; justify-content:center;">
+        <span class="flair-link">Updates</span>
+        <span class="flair-link">Thoughts</span>
+        <span class="flair-link">Tutorials</span>
+        <span class="flair-link">Announcements</span>
+      </div>
+    </section>
+    <!-- Featured Post -->
+    <section class="centered-box page-flair" style="margin-bottom:2rem; background:rgba(255,255,255,0.04); border:2px solid var(--pink);">
+      <h2 style="margin-bottom:0.5em;">🌟 Featured</h2>
+      <article class="card" style="margin:0 auto; max-width:500px;">
+        <h3>How PixelLumo Was Built</h3>
+        <p style="color:#fff9;">A behind-the-scenes look at the journey, challenges, and vision for the platform.</p>
+        <div style="font-size:0.95em; color:#fff9; margin-bottom:0.5em;">By <a href="profile.html" style="color:var(--pink);">Lumo</a> • Dec 2025</div>
+        <a href="#" class="btn-primary" style="font-size:0.95em;">Read More</a>
+      </article>
+    </section>
+    <!-- Blog Post Cards -->
+    <section class="centered-box page-flair" style="margin-bottom:2rem;">
+      <h2 style="margin-bottom:1em;">Recent Posts</h2>
+      <div class="grid" style="display:flex; flex-wrap:wrap; gap:1.2rem; justify-content:center;">
+        <article class="card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+          <h3>Minecraft Adventure</h3>
+          <p>We’re starting a new survival challenge with friends! Epic builds, funny fails, and creative competitions.</p>
+          <div style="font-size:0.95em; color:#fff9;">By <a href="profile.html" style="color:var(--pink);">Lumo</a> • Dec 2025</div>
+          <div style="display:flex; gap:1em; align-items:center; margin-top:0.5em;">
+            <button class="btn-secondary" style="font-size:0.9em;">👍 Like</button>
+            <button class="btn-secondary" style="font-size:0.9em;">💾 Save</button>
+            <a href="#comments-1" style="color:var(--pink); font-size:0.9em;">💬 2 Comments</a>
+          </div>
+        </article>
+        <article class="card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+          <h3>Rocket League Tournaments</h3>
+          <p>Daily matches, ranked games, and mini-tournaments. Join and show your skills!</p>
+          <div style="font-size:0.95em; color:#fff9;">By <a href="profile.html" style="color:var(--pink);">Lumo</a> • Dec 2025</div>
+          <div style="display:flex; gap:1em; align-items:center; margin-top:0.5em;">
+            <button class="btn-secondary" style="font-size:0.9em;">👍 Like</button>
+            <button class="btn-secondary" style="font-size:0.9em;">💾 Save</button>
+            <a href="#comments-2" style="color:var(--pink); font-size:0.9em;">💬 1 Comment</a>
+          </div>
+        </article>
+        <article class="card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+          <h3>Fallout Stories</h3>
+          <p>Sharing hilarious solo adventures with random glitches and encounters.</p>
+          <div style="font-size:0.95em; color:#fff9;">By <a href="profile.html" style="color:var(--pink);">Lumo</a> • Dec 2025</div>
+          <div style="display:flex; gap:1em; align-items:center; margin-top:0.5em;">
+            <button class="btn-secondary" style="font-size:0.9em;">👍 Like</button>
+            <button class="btn-secondary" style="font-size:0.9em;">💾 Save</button>
+            <a href="#comments-3" style="color:var(--pink); font-size:0.9em;">💬 0 Comments</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- Comments Section (static example) -->
+    <section class="centered-box page-flair" id="comments-1" style="margin-bottom:2rem;">
+      <h2>💬 Comments</h2>
+      <div style="margin-bottom:1em;">
+        <strong><a href="profile.html" style="color:var(--pink);">Lumo</a>:</strong> This was so much fun to write!
+      </div>
+      <div style="margin-bottom:1em;">
+        <strong><a href="profile.html" style="color:var(--pink);">PixelFan</a>:</strong> Can’t wait to join the next adventure!
+      </div>
+      <form style="margin-top:1.5em;">
+        <textarea placeholder="Add a comment..." rows="2" style="width:100%; border-radius:6px; padding:0.7em;"></textarea>
+        <button class="btn-primary" type="submit" style="margin-top:0.5em;">Post Comment</button>
+      </form>
+    </section>
+    <!-- Footer CTA -->
+    <section class="centered-box page-flair" style="text-align:center;">
+      <h2 style="margin-bottom:0.7rem;">Want to write your own post?</h2>
+      <a href="signup.html" class="btn-primary" style="font-size:1.1rem; padding:0.7em 2em;">Sign Up & Contribute</a>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+  <script src="/js/layout.js"></script>
+</body>
+
+</html>

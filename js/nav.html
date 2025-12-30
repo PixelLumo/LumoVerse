@@ -1,0 +1,38 @@
+<nav class="main-nav">
+    <a class="nav-link" href="home.html">🏠 Start</a>
+    <a class="nav-link" href="about.html">ℹ️ Info</a>
+    <a class="nav-link" href="blog.html">📝 Posts</a>
+    <a class="nav-link" href="gallery.html">🖼️ Artz</a>
+    <a class="nav-link" href="chat-messaging.html">💬 Talk</a>
+    <a class="nav-link" href="community.html">👥 Squad</a>
+    <a class="nav-link" href="leaderboard.html">🏆 Top</a>
+    <a class="nav-link" href="notifications.html">🔔 <span id="notif-badge" class="badge"></span></a>
+    <a class="nav-link" href="contact.html">📧 Ping</a>
+    <a class="nav-link" href="tutorials.html">🎓 Learn</a>
+    <a class="nav-link" href="support.html">💖 Boost</a>
+    <a class="nav-link" href="settings.html">⚙️ Tune</a>
+    <a class="nav-link" href="profile.html">👤 Me</a>
+    <a class="nav-link" href="auth.html">🔐 Auth</a>
+    <a class="nav-link" href="rules.html">📜 Rules</a>
+    <a class="nav-link" href="roadmap.html">🚀 Roadmap</a>
+    <a class="nav-link" href="faq.html">❓ FAQ</a>
+    <a class="nav-link" href="privacy.html">🛡️ Privacy</a>
+    <a class="nav-link" href="terms.html">📄 Terms</a>
+    <a class="nav-link" id="admin-link" href="admin.html" style="display:none;">🛡️ Mod</a>
+</nav>
+<script type="module">
+    import { updateBadge } from './notifications.js';
+    updateBadge();
+    import { supabase } from './supabase.js';
+    supabase.auth.getUser().then(async ({ data }) => {
+        if (!data.user) return;
+        const { data: profile } = await supabase
+            .from("profiles")
+            .select("is_admin")
+            .eq("user_id", data.user.id)
+            .single();
+        if (profile?.is_admin) {
+            document.getElementById("admin-link").style.display = "inline-block";
+        }
+    });
+</script>

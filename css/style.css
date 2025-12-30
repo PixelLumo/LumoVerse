@@ -1,0 +1,575 @@
+nav+h2,
+nav+h3,
+nav+h4,
+nav+h5,
+nav+h6 {
+  background: transparent !important;
+}
+
+html,
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex: 1 0 auto;
+}
+
+footer,
+.site-footer {
+  margin-top: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  background: transparent !important;
+}
+
+nav,
+.main-nav {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body,
+html {
+  text-align: center;
+}
+
+.centered-box,
+.page-flair,
+.leaderboard-flair,
+.card,
+.admin-stats {
+  text-align: initial;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+
+/* Notification badge */
+.badge {
+  background: red;
+  color: white;
+  border-radius: 999px;
+  padding: 0 6px;
+  font-size: 0.7rem;
+  margin-left: 2px;
+}
+
+/* Flair for all main content boxes */
+
+.page-flair {
+  background: linear-gradient(135deg, #7b2ff2 0%, #4e085f 100%);
+  border: 2.5px solid #7b2ff2;
+  border-radius: 24px;
+  box-shadow: 0 0 24px #6a0dad55, 0 0 8px #6a0dad44;
+  padding: 2.5rem 3.5rem;
+  margin-bottom: 2.5rem;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.page-flair:hover {
+  box-shadow: 0 0 48px #ff1493cc, 0 0 16px #fff;
+  border-color: #fff200;
+}
+
+/* Flair for leaderboard */
+.leaderboard-flair {
+  background: linear-gradient(135deg, #7b2ff2 0%, #f357a8 100%);
+  border: 2.5px solid #ff1493;
+  border-radius: 24px;
+  box-shadow: 0 0 24px #e040fb55, 0 0 8px #6a0dad44;
+  padding: 2.5rem 3.5rem;
+  margin-bottom: 2.5rem;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.leaderboard-flair:hover {
+  box-shadow: 0 0 48px #ff1493cc, 0 0 16px #fff;
+  border-color: #fff200;
+}
+
+.leaderboard-flair table tr {
+  transition: background 0.2s;
+}
+
+.leaderboard-flair table tr:hover {
+  background: linear-gradient(90deg, #e040fb33 0%, #6a0dad33 100%);
+}
+
+/* Flair links for support and similar pages */
+.flair-link {
+  background: var(--purple-mystery-fade);
+  color: #ffeb3b !important;
+  border-radius: 1.5em;
+  padding: 0.6em 1.4em;
+  margin: 0.2em 0;
+  font-weight: bold;
+  font-size: 1.08em;
+  box-shadow: 0 0 12px #e040fb55, 0 0 2px #fff;
+  text-shadow: 0 0 8px #fff8, 0 0 2px #ffeb3b;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  text-decoration: none;
+}
+
+.flair-link:hover {
+  background: linear-gradient(90deg, #e040fb88 0%, #6a0dad88 100%);
+}
+
+/* Admin status tags */
+.admin-tag {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8em;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 0.5em;
+  display: inline-block;
+}
+
+.admin-tag.online {
+  background: #2ecc71;
+}
+
+.admin-tag.admin {
+  background: #9b59b6;
+}
+
+/* Admin analytics dashboard */
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  background: #111;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat-box span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700;900&display=swap');
+
+:root {
+  --purple: #7b2ff2;
+  --purple-dark: #4e085f;
+  --purple-mystery: #7b2ff2;
+  --purple-mystery-light: #f357a8;
+  --purple-mystery-fade: linear-gradient(135deg, #7b2ff2 0%, #4e085f 100%);
+  --pink: #ff1493;
+  --white: #f5f5ff;
+  --box-bg: rgba(123, 47, 242, 0.22);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--purple-mystery-fade);
+  color: var(--white);
+  font-family: 'Fredoka', sans-serif;
+  min-height: 100vh;
+}
+
+.hero-box {
+  width: 100vw;
+  margin: 0 auto 0 auto;
+  margin-top: 0.5rem;
+  padding: 2.5rem 0;
+  background: var(--purple-mystery-fade);
+  border-radius: 0 0 32px 32px;
+  box-shadow: 0 4px 32px rgba(106, 13, 173, 0.18);
+  text-align: center;
+  color: var(--white);
+}
+
+.centered-box {
+  max-width: 900px;
+  margin: 0.3rem auto 3rem auto;
+  padding: 2.5rem 3.5rem;
+  background: var(--purple-mystery-fade);
+  border-radius: 22px;
+  box-shadow: 0 4px 32px rgba(26, 0, 51, 0.22);
+  text-align: center;
+  color: var(--white);
+}
+
+header.hero {
+  background: var(--purple-mystery-fade);
+  color: var(--white);
+  text-align: center;
+  padding: 3rem 1rem;
+  border-radius: 18px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 32px rgba(106, 13, 173, 0.12);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  background: var(--purple-mystery-fade);
+  box-shadow: 0 2px 24px 0 rgba(106, 13, 173, 0.18);
+  width: fit-content;
+  margin: 18px auto 24px auto;
+}
+
+nav a,
+.main-nav .nav-link {
+  margin: 0 18px;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 900;
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: color 0.3s, text-shadow 0.3s, background 0.3s;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+  font-family: 'Fredoka', Arial, sans-serif;
+}
+
+.main-nav .nav-link:hover,
+.main-nav .nav-link:focus {
+  color: #fff;
+  background: rgba(229, 57, 53, 0.18);
+  border-radius: 24px;
+  box-shadow: 0 0 12px 2px #e5393588, 0 2px 8px 0 #fff2;
+  text-shadow: 0 0 8px #e53935, 0 0 2px #fff;
+}
+
+.pink-text {
+  color: var(--pink) !important;
+}
+
+.game-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4em 1em;
+  background: linear-gradient(90deg, #e040fb 0%, #7c4dff 100%);
+  color: #fff;
+  font-family: 'Fredoka', Trebuchet MS, Arial, sans-serif;
+  font-size: 1rem;
+  border-radius: 1.5em;
+  text-decoration: none;
+  box-shadow: 0 0 8px #e040fb88;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.game-link:hover {
+  background: linear-gradient(90deg, #7c4dff 0%, #e040fb 100%);
+  box-shadow: 0 0 16px #e040fbcc;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.banner {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 0 20px #ff69b4;
+}
+
+form input,
+form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #2e003e;
+  color: var(--white);
+  border: 1px solid var(--purple);
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: var(--pink);
+  border: none;
+  border-radius: 5px;
+  color: var(--white);
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: var(--purple);
+  box-shadow: 0 0 10px var(--pink);
+}
+
+.social-links li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.social-links a {
+  color: #b388ff;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: var(--pink);
+}
+
+.card {
+  background: linear-gradient(135deg, #7b2ff2 0%, #4e085f 100%);
+  border: 2px solid #7b2ff2;
+  border-radius: 12px;
+  padding: 1.5rem;
+  min-width: 180px;
+  text-align: center;
+  box-shadow: 0 2px 8px #6a0dad33;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.card a {
+  color: var(--pink);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.card:hover {
+  box-shadow: 0 6px 24px rgba(124, 58, 237, 0.28);
+  border-color: var(--pink);
+}
+
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+
+/* Responsive Design Enhancements */
+@media (max-width: 1024px) {
+
+  .page-flair,
+  .centered-box,
+  .leaderboard-flair {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  header.hero {
+    padding: 2rem 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  html,
+  body {
+    font-size: 15px;
+  }
+
+  main,
+  .container,
+  .box {
+    padding: 0.7rem;
+  }
+
+  .page-flair,
+  .centered-box,
+  .leaderboard-flair {
+    padding: 1rem 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 14px;
+  }
+
+  .hero-box,
+  header.hero {
+    padding: 1.2rem 0.5rem;
+    border-radius: 12px;
+  }
+
+  nav {
+    flex-direction: column;
+    width: 98vw;
+    margin: 10px auto 16px auto;
+    border-radius: 10px;
+    padding: 0.5rem 0;
+  }
+
+  nav a,
+  .main-nav .nav-link {
+    margin: 6px 0;
+    font-size: 1rem;
+    padding: 8px 10px;
+    width: 90vw;
+    text-align: center;
+    display: block;
+  }
+
+  .stat-box {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  .banner {
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .game-link {
+    font-size: 0.95rem;
+    padding: 0.3em 0.7em;
+  }
+
+  .card {
+    min-width: unset;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  #user-header {
+    position: static !important;
+    transform: none !important;
+    margin: 0.5rem 0 0 0;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 0.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  html,
+  body {
+    font-size: 13px;
+  }
+
+  .page-flair,
+  .centered-box,
+  .leaderboard-flair {
+    padding: 0.5rem 0.2rem;
+    margin-bottom: 0.7rem;
+    border-radius: 8px;
+  }
+
+  .hero-box,
+  header.hero {
+    padding: 0.7rem 0.2rem;
+    border-radius: 8px;
+  }
+
+  nav {
+    width: 99vw;
+    padding: 0.2rem 0;
+  }
+
+  nav a,
+  .main-nav .nav-link {
+    font-size: 0.95rem;
+    padding: 6px 4px;
+    width: 96vw;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 0.7rem;
+    border-radius: 6px;
+  }
+
+  .site-header span[style*='font-size:3.5rem'] {
+    font-size: 2.2rem !important;
+  }
+
+  .site-header span[style*='font-size:3.2rem'] {
+    font-size: 1.5rem !important;
+  }
+}
+
+.site-header span[style*='font-size:3.2rem'] {
+  color: #2a003f !important;
+  font-weight: 900 !important;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 8px #fff2, 0 1px 0 #0002;
+}
+
+.site-header span[style*='font-size:3.5rem'] {
+  color: #2a003f !important;
+  font-weight: 900 !important;
+  text-shadow: 0 2px 8px #fff2, 0 1px 0 #0002;
+}

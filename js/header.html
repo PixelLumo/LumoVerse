@@ -1,0 +1,42 @@
+<div id="global-login-btn" style="position:fixed; top:12px; right:18px; z-index:2000;">
+  <a href="login.html" class="btn-primary" id="global-login-link" style="display:none;">Login / Sign Up</a>
+</div>
+<header class="site-header" style="position:relative; padding:0.7rem 0;">
+  <div style="display:flex; align-items:flex-end; justify-content:center; gap:0.7rem;">
+    <span style="font-size:3.5rem;">🎮</span>
+    <span
+      style="font-family:'Fredoka',Arial,sans-serif; font-size:3.2rem; color:#7c3aed; font-weight:700;">PixelLumo</span>
+  </div>
+  <div id="user-header"
+    style="position:absolute; right:2rem; top:50%; transform:translateY(-50%); display:flex; align-items:center; gap:1rem;">
+  </div>
+</header>
+<script type="module">
+  import { supabase } from './supabase.js';
+  const userHeader = document.getElementById('user-header');
+  const globalLoginBtn = document.getElementById('global-login-btn');
+  const globalLoginLink = document.getElementById('global-login-link');
+  supabase.auth.getUser().then(async ({ data }) => {
+    if (!data.user) {
+      userHeader.innerHTML = `<a href='login.html' class='btn-primary'>Login / Sign Up</a>`;
+      globalLoginLink.style.display = 'inline-block';
+      return;
+    }
+    // Fetch profile info
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('display_name,avatar')
+      .eq('user_id', data.user.id)
+      .single();
+    userHeader.innerHTML = `
+    <img src='${profile?.avatar || "assets/default-avatar.png"}' alt='Avatar' style='width:32px; height:32px; border-radius:50%;'>
+    <span>${profile?.display_name || data.user.email}</span>
+    <button id='logoutBtn' class='btn-secondary'>Logout</button>
+  `;
+    globalLoginLink.style.display = 'none';
+    document.getElementById('logoutBtn').onclick = async () => {
+      await supabase.auth.signOut();
+      location.href = 'login.html';
+    };
+  });
+</script>

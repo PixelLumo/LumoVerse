@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>🎓 Learn | PixelLumo Tutorials</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div id="header-placeholder"></div>
+	<div id="nav-placeholder"></div>
+	<script src="/js/layout.js"></script>
+	<div class="hero-box">
+		<h1 class="glow pink-text">🎓 Learn</h1>
+		<p style="font-size:1.2rem;">Level up your skills with step-by-step guides, videos, and community wisdom.
+		</p>
+	</div>
+	<main>
+		<!-- Tutorial Categories -->
+		<section class="centered-box page-flair" style="margin-bottom:2rem;">
+			<div style="display:flex; flex-wrap:wrap; gap:0.7em; justify-content:center;">
+				<button class="flair-link">All</button>
+				<button class="flair-link">Beginner</button>
+				<button class="flair-link">Intermediate</button>
+				<button class="flair-link">Advanced</button>
+				<button class="flair-link">Community</button>
+			</div>
+		</section>
+		<!-- Featured Video Tutorial -->
+		<section class="centered-box page-flair" style="margin-bottom:2rem;">
+			<h2>Featured Video</h2>
+			<div style="display:flex; flex-wrap:wrap; gap:2em; align-items:center; justify-content:center;">
+				<iframe width="340" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Featured Tutorial"
+					frameborder="0" allowfullscreen style="border-radius:12px;"></iframe>
+				<div>
+					<h3>How to Build an Epic Minecraft Base</h3>
+					<ul style="color:#fff9;">
+						<li>Step-by-step video walkthrough</li>
+						<li>Resource list & building tips</li>
+						<li>Beginner friendly</li>
+					</ul>
+					<span class="badge" style="background:#ffd700; color:#222;">🏅 Completion Badge</span>
+				</div>
+			</div>
+		</section>
+		<!-- Step-by-Step Guides -->
+		<section class="centered-box page-flair" style="margin-bottom:2rem;">
+			<h2>Step-by-Step Guides</h2>
+			<div class="grid" style="display:flex; flex-wrap:wrap; gap:1.2rem; justify-content:center;">
+				<div class="card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+					<h3>Getting Started in Rocket League</h3>
+					<ol style="color:#fff9; font-size:0.98em;">
+						<li>Download and install the game</li>
+						<li>Complete the tutorial</li>
+						<li>Practice basic moves</li>
+						<li>Join your first match</li>
+					</ol>
+					<span class="badge" style="background:#4caf50;">✔️ Beginner</span>
+				</div>
+				<div class="card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+					<h3>Advanced Minecraft Redstone</h3>
+					<ol style="color:#fff9; font-size:0.98em;">
+						<li>Understand redstone basics</li>
+						<li>Build a piston door</li>
+						<li>Automate a farm</li>
+						<li>Create a secret base</li>
+					</ol>
+					<span class="badge" style="background:#e040fb;">💡 Advanced</span>
+				</div>
+			</div>
+		</section>
+		<!-- Community-Submitted Tutorials -->
+		<section class="centered-box page-flair" style="margin-bottom:2rem;">
+			<h2>Community Tutorials</h2>
+			<div class="grid" style="display:flex; flex-wrap:wrap; gap:1.2rem; justify-content:center;">
+				<div class="card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+					<h3>How to Win More Duels</h3>
+					<p style="color:#fff9;">By <a href="profile.html" style="color:var(--pink);">PixelFan</a></p>
+					<span class="badge" style="background:#ff9800;">🔥 Community</span>
+				</div>
+				<div class="card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+					<h3>Terraria Boss Rush Guide</h3>
+					<p style="color:#fff9;">By <a href="profile.html" style="color:var(--pink);">ArtStar</a></p>
+					<span class="badge" style="background:#ff9800;">🔥 Community</span>
+				</div>
+			</div>
+		</section>
+		<!-- Upload Tutorial Button -->
+		<section class="centered-box page-flair" style="text-align:center;">
+			<h2 style="margin-bottom:0.7rem;">Want to share your own tutorial?</h2>
+			<a href="#upload" class="btn-primary" style="font-size:1.1rem; padding:0.7em 2em;">Upload Tutorial</a>
+		</section>
+		<!-- Upload Form (anchor) -->
+		<section class="centered-box page-flair" id="upload" style="margin-top:2rem;">
+			<h2>Upload a Tutorial</h2>
+			<form id="tutorial-upload-form"
+				style="display:flex; flex-direction:column; gap:1em; max-width:500px; margin:auto;"
+				enctype="multipart/form-data">
+				<label>
+					Title
+					<input type="text" name="title" required placeholder="Tutorial title">
+				</label>
+				<label>
+					Game
+					<input type="text" name="game" required placeholder="Game (e.g. Minecraft, Rocket League)">
+				</label>
+				<label>
+					Short Description
+					<textarea name="description" rows="2" required placeholder="Brief description of your tutorial"></textarea>
+				</label>
+				<label>
+					Tutorial File
+					<input type="file" name="file" required>
+				</label>
+				<button type="submit" class="btn-primary">Upload Tutorial</button>
+			</form>
+		</section>
+	</main>
+	<div id="footer-placeholder"></div>
+</body>
+
+</html>

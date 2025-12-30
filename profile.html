@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Profile - PixelLumo</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div id="header-placeholder"></div>
+	<div id="nav-placeholder"></div>
+	<div id="footer-placeholder"></div>
+	<script src="/js/layout.js"></script>
+
+	<div class="hero-box" style="padding:0;">
+		<div id="profile-banner"
+			style="width:100%; height:180px; background:linear-gradient(90deg, #6a1b9a 60%, #8e24aa 100%); border-radius:1.5em 1.5em 0 0; position:relative; overflow:hidden;">
+			<img id="profile-banner-img" src="assets/default-banner.jpg" alt="Banner"
+				style="object-fit:cover; width:100%; height:100%; opacity:0.7;">
+		</div>
+		<div style="position:relative; top:-48px; text-align:center;">
+			<img id="profile-avatar" src="assets/default-avatar.png" alt="User Avatar"
+				style="width:96px; height:96px; border-radius:50%; border:4px solid #fff; box-shadow:0 2px 12px #0003; background:#fff;">
+			<h1 id="profile-displayName" class="glow pink-text" style="margin:0.5em 0 0.2em 0;"></h1>
+			<p id="profile-bio" style="font-style:italic; color:#fff9; margin:0 0 0.5em 0;"></p>
+			<div id="profile-socials" style="margin-bottom:0.5em;"></div>
+			<a href="settings.html" class="game-link" style="margin-bottom:1em;">Edit Profile</a>
+		</div>
+	</div>
+	<main>
+		<div class="centered-box page-flair" style="max-width:700px; margin:auto; margin-top:-2em;">
+			<!-- Stats -->
+			<section style="display:flex; justify-content:space-around; gap:1.5em; flex-wrap:wrap; margin-bottom:1.5em;">
+				<div class="card" style="min-width:100px; text-align:center;">
+					<div style="font-size:1.5em;">⭐</div>
+					<div id="profile-achievements">0</div>
+					<div style="font-size:0.95em; color:#fff9;">Achievements</div>
+				</div>
+				<div class="card" style="min-width:100px; text-align:center;">
+					<div style="font-size:1.5em;">🖼️</div>
+					<div id="profile-artcount">0</div>
+					<div style="font-size:0.95em; color:#fff9;">Artworks</div>
+				</div>
+				<div class="card" style="min-width:100px; text-align:center;">
+					<div style="font-size:1.5em;">📝</div>
+					<div id="profile-postcount">0</div>
+					<div style="font-size:0.95em; color:#fff9;">Posts</div>
+				</div>
+			</section>
+			<!-- Tabs -->
+			<div style="display:flex; gap:1em; justify-content:center; margin-bottom:1em;">
+				<button class="game-link" id="tab-posts" style="min-width:100px;">Posts</button>
+				<button class="game-link" id="tab-art" style="min-width:100px;">Art</button>
+				<button class="game-link" id="tab-achievements" style="min-width:100px;">Achievements</button>
+			</div>
+			<div id="profile-tab-content" style="min-height:120px;"></div>
+		</div>
+	</main>
+
+	<!-- Footer is loaded by layout.js -->
+
+	<script type="module">
+		import { supabase } from './js/supabase.js'
+		import { loadProfile } from './js/profile.js'
+
+		function renderSocialLinks(links) {
+			if (!links) return '';
+			let html = '';
+			if (links.twitter) html += `<a href="${links.twitter}" target="_blank" title="Twitter" style="margin:0 0.3em;"><img src="assets/twitter.svg" alt="Twitter" style="width:22px;"></a>`;
+			if (links.instagram) html += `<a href="${links.instagram}" target="_blank" title="Instagram" style="margin:0 0.3em;"><img src="assets/instagram.svg" alt="Instagram" style="width:22px;"></a>`;
+			if (links.website) html += `<a href="${links.website}" target="_blank" title="Website" style="margin:0 0.3em;"><img src="assets/link.svg" alt="Website" style="width:22px;"></a>`;
+			return html;
+		}
+
+		supabase.auth.getUser().then(async ({ data: { user } }) => {
+			if (!user) { location.href = 'login.html'; return }
+			const profile = await loadProfile(user.id)
+			document.getElementById('profile-avatar').src = profile.avatar
+			document.getElementById('profile-displayName').textContent = profile.displayName
+			document.getElementById('profile-bio').textContent = profile.bio
+			document.getElementById('profile-banner-img').src = profile.banner || 'assets/default-banner.jpg'
+			document.getElementById('profile-socials').innerHTML = renderSocialLinks(profile.socials)
+			// Stats
+			document.getElementById('profile-achievements').textContent = profile.achievements?.length || 0
+			document.getElementById('profile-artcount').textContent = profile.art?.length || 0
+			document.getElementById('profile-postcount').textContent = profile.posts?.length || 0
+
+			// Tabs
+			const tabContent = document.getElementById('profile-tab-content')
+			function showTab(tab) {
+				if (tab === 'posts') {
+					tabContent.innerHTML = (profile.posts && profile.posts.length)
+						? profile.posts.map(p => `<div class='card' style='margin-bottom:0.7em;'><strong>${p.title}</strong><p>${p.content}</p></div>`).join('')
+						: '<div style="color:#fff7;">No posts yet.</div>'
+				} else if (tab === 'art') {
+					tabContent.innerHTML = (profile.art && profile.art.length)
+						? profile.art.map(a => `<div class='card' style='margin-bottom:0.7em;'><img src='${a.url}' alt='Art' style='max-width:100%; border-radius:0.7em;'><div>${a.title || ''}</div></div>`).join('')
+						: '<div style="color:#fff7;">No art uploaded yet.</div>'
+				} else if (tab === 'achievements') {
+					tabContent.innerHTML = (profile.achievements && profile.achievements.length)
+						? profile.achievements.map(ach => `<div class='card' style='margin-bottom:0.7em;'><strong>${ach.name}</strong><p>${ach.desc}</p></div>`).join('')
+						: '<div style="color:#fff7;">No achievements yet.</div>'
+				}
+			}
+			document.getElementById('tab-posts').onclick = () => showTab('posts')
+			document.getElementById('tab-art').onclick = () => showTab('art')
+			document.getElementById('tab-achievements').onclick = () => showTab('achievements')
+			showTab('posts')
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>🖼️ Artz | PixelLumo Gallery</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
+</head>
+
+<body>
+	<div id="header-placeholder"></div>
+	<div id="nav-placeholder"></div>
+	<script src="/js/layout.js"></script>
+	<div class="hero-box">
+		<h1 class="glow pink-text">🖼️ Artz</h1>
+		<p style="font-size:1.2rem;">A celebration of creativity. Explore, feel, and share your best moments.</p>
+	</div>
+	<main>
+		<!-- Filters -->
+		<section class="centered-box page-flair" style="margin-bottom:2rem;">
+			<div style="display:flex; flex-wrap:wrap; gap:0.7em; justify-content:center;">
+				<button class="flair-link" onclick="filterGallery('all')">All</button>
+				<button class="flair-link" onclick="filterGallery('art')">Art</button>
+				<button class="flair-link" onclick="filterGallery('screenshot')">Screenshots</button>
+				<button class="flair-link" onclick="filterGallery('meme')">Memes</button>
+				<button class="flair-link" onclick="filterGallery('other')">Other</button>
+			</div>
+		</section>
+		<!-- Upload Button (members only) -->
+		<section class="centered-box page-flair" id="upload-section" style="margin-bottom:2rem; display:none;">
+			<form id="gallery-upload-form"
+				style="display:flex; flex-direction:column; gap:1em; max-width:400px; margin:auto;">
+				<input type="file" name="file" required accept="image/*,video/*">
+				<input type="text" name="title" placeholder="Title" required>
+				<input type="text" name="game" placeholder="Game" required>
+				<textarea name="description" placeholder="Description" rows="2"></textarea>
+				<button type="submit" class="btn-primary">Upload</button>
+			</form>
+		</section>
+		<!-- Gallery Grid -->
+		<section id="galleryGrid"
+			style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:1.2rem;">
+			<!-- JS will populate gallery images here -->
+		</section>
+	</main>
+	<!-- Lightbox Modal (hidden by default) -->
+	<div id="lightboxModal"
+		style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#000a; z-index:1000; align-items:center; justify-content:center;">
+		<div id="lightboxContent"
+			style="background:#222; border-radius:12px; padding:1.5em; max-width:90vw; max-height:90vh; position:relative;">
+			<button onclick="closeLightbox()"
+				style="position:absolute; top:1em; right:1em; font-size:1.5em; background:none; border:none; color:#fff; cursor:pointer;">✖️</button>
+			<!-- JS will fill in artwork, credits, comments, etc. -->
+		</div>
+	</div>
+	<div id="footer-placeholder"></div>
+	<script src="/js/layout.js"></script>
+	<script type="module" src="js/gallery.js"></script>
+	<script>
+		// Filter logic placeholder
+		function filterGallery(type) {
+			// JS in gallery.js should handle filtering
+		}
+		// Lightbox logic placeholder
+		function closeLightbox() {
+			document.getElementById('lightboxModal').style.display = 'none';
+		}
+	</script>
+</body>
+
+</html>

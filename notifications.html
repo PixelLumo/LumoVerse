@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>🔔 Notifications | PixelLumo</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div id="header-placeholder"></div>
+	<div id="nav-placeholder"></div>
+	<div id="footer-placeholder"></div>
+	<script src="js/layout.js"></script>
+	<div class="hero-box">
+		<h1 class="glow pink-text">🔔 Notifications</h1>
+		<p style="font-size:1.1rem;">Stay up to date with your mentions, likes, and messages.</p>
+	</div>
+	<main>
+		<section class="centered-box page-flair" style="margin-bottom:2rem;">
+			<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1em;">
+				<div style="display:flex; gap:0.7em; flex-wrap:wrap;">
+					<button class="flair-link" onclick="filterNotifs('all')">All</button>
+					<button class="flair-link" onclick="filterNotifs('mentions')">Mentions</button>
+					<button class="flair-link" onclick="filterNotifs('likes')">Likes</button>
+					<button class="flair-link" onclick="filterNotifs('messages')">Messages</button>
+				</div>
+				<a href="settings.html" class="btn-secondary" style="font-size:0.95em;">Notification Settings</a>
+			</div>
+		</section>
+		<section class="centered-box page-flair" style="margin-bottom:2rem;">
+			<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1em;">
+				<h2 style="margin:0;">Activity Feed</h2>
+				<div>
+					<button class="btn-secondary" onclick="markAllRead()">Mark all read</button>
+					<button class="btn-secondary" onclick="clearAllNotifs()">Clear all</button>
+				</div>
+			</div>
+			<ul id="notif-list" style="list-style:none; padding:0;">
+				<!-- JS will populate notifications here -->
+			</ul>
+		</section>
+	</main>
+	<script type="module">
+		import { getNotifications, markAllRead, clearAllNotifs } from "./js/notifications.js";
+		const list = document.getElementById("notif-list");
+		function renderNotifs(type = 'all') {
+			list.innerHTML = '';
+			getNotifications(type).forEach(n => {
+				const li = document.createElement("li");
+				li.innerHTML = `<span style='font-weight:bold;'>${n.type === 'mention' ? '💬' : n.type === 'like' ? '❤️' : n.type === 'message' ? '📩' : '🔔'}</span> ${n.message} <span style='color:#fff9; font-size:0.95em;'>(${new Date(n.time).toLocaleString()})</span> <button onclick='this.parentNode.remove()' style='margin-left:1em; font-size:0.9em;'>✖️</button>`;
+				if (!n.read) li.style.background = '#fff2';
+				li.style.padding = '0.7em 1em';
+				li.style.borderRadius = '8px';
+				li.style.marginBottom = '0.5em';
+				list.appendChild(li);
+			});
+		}
+		window.filterNotifs = renderNotifs;
+		window.markAllRead = () => { markAllRead(); renderNotifs(); };
+		window.clearAllNotifs = () => { clearAllNotifs(); renderNotifs(); };
+		renderNotifs();
+	</script>
+</body>
+
+</html>

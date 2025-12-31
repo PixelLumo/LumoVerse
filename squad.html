@@ -1,50 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>👥 Squad | PixelLumo Community</title>
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-	<!-- Header -->
-	<div id="header-placeholder"></div>
-	<!-- Navigation -->
-	<div id="nav-placeholder"></div>
-
-	<script src="/js/layout.js"></script>
-	<!-- Hero Section -->
+	<div id="header"></div>
+	<div id="nav"></div>
+	<div id="footer"></div>
+	<script src="js/layout.js"></script>
 	<div class="hero-box">
 		<h1 class="glow pink-text">👥 Squad</h1>
 		<p style="font-size:1.2rem;">Find your people. Join squads, earn badges, and belong.</p>
 	</div>
-
 	<main>
+		<p class="community-note">Spaces here are intentionally small.  <br>Presence matters more than noise.</p>
 		<!-- Featured Members -->
 		<section class="centered-box page-flair" style="margin-bottom:2rem;">
 			<h2>🌟 Featured Members</h2>
 			<div style="display:flex; flex-wrap:wrap; gap:1.2em; justify-content:center;">
 				<div class="card" style="min-width:160px; max-width:200px;">
-					<img src="assets/default-avatar.png" alt="Lumo"
-						style="width:56px; height:56px; border-radius:50%; margin-bottom:0.5em;">
+					<img src="assets/default-avatar.png" alt="Lumo" style="width:56px; height:56px; border-radius:50%; margin-bottom:0.5em;">
 					<h3>Lumo <span class="admin-tag admin">Admin</span></h3>
 					<p style="font-size:0.95em; color:#fff9;">Founder, creator, and community builder.</p>
-					<div><span class="badge" style="background:#ffd700; color:#222;">🏆 Top</span> <span class="badge"
-							style="background:#e040fb;">🎨 Artist</span></div>
+					<div><span class="badge" style="background:#ffd700; color:#222;">🏆 Top</span> <span class="badge" style="background:#e040fb;">🎨 Artist</span></div>
 				</div>
 				<div class="card" style="min-width:160px; max-width:200px;">
-					<img src="assets/default-avatar.png" alt="PixelFan"
-						style="width:56px; height:56px; border-radius:50%; margin-bottom:0.5em;">
+					<img src="assets/default-avatar.png" alt="PixelFan" style="width:56px; height:56px; border-radius:50%; margin-bottom:0.5em;">
 					<h3>PixelFan <span class="admin-tag">Mod</span></h3>
 					<p style="font-size:0.95em; color:#fff9;">Squad leader and event organizer.</p>
-					<div><span class="badge" style="background:#4caf50;">💬 Helper</span> <span class="badge"
-							style="background:#ff9800;">🔥 OG</span></div>
+					<div><span class="badge" style="background:#4caf50;">💬 Helper</span> <span class="badge" style="background:#ff9800;">🔥 OG</span></div>
 				</div>
 			</div>
 		</section>
-
 		<!-- User Directory & Squads -->
 		<section class="centered-box page-flair" style="margin-bottom:2rem;">
 			<h2>🗂️ User Directory</h2>
@@ -59,36 +50,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td><img src="assets/default-avatar.png" alt="Lumo"
-								style="width:28px; height:28px; border-radius:50%; vertical-align:middle;"> Lumo</td>
-						<td><span class="admin-tag admin">Admin</span></td>
-						<td>Founders</td>
-						<td><span class="badge" style="background:#ffd700; color:#222;">🏆</span></td>
-						<td>1</td>
-					</tr>
-					<tr>
-						<td><img src="assets/default-avatar.png" alt="PixelFan"
-								style="width:28px; height:28px; border-radius:50%; vertical-align:middle;"> PixelFan
-						</td>
-						<td><span class="admin-tag">Mod</span></td>
-						<td>Builders</td>
-						<td><span class="badge" style="background:#e040fb;">🎨</span></td>
-						<td>2</td>
-					</tr>
-					<tr>
-						<td><img src="assets/default-avatar.png" alt="ArtStar"
-								style="width:28px; height:28px; border-radius:50%; vertical-align:middle;"> ArtStar
-						</td>
-						<td><span class="admin-tag" style="background:#2196f3;">Creator</span></td>
-						<td>Artists</td>
-						<td><span class="badge" style="background:#ff9800;">🔥</span></td>
-						<td>3</td>
-					</tr>
+					<tr><td colspan="5"><p class="empty-state">It’s quiet right now. That’s okay.</p></td></tr>
 				</tbody>
 			</table>
 		</section>
-
 		<!-- Groups / Squads -->
 		<section class="centered-box page-flair" style="margin-bottom:2rem;">
 			<h2>👑 Squads & Groups</h2>
@@ -107,7 +72,6 @@
 				</div>
 			</div>
 		</section>
-
 		<!-- Community Rules -->
 		<section class="centered-box page-flair" style="margin-bottom:2rem;">
 			<h2>📜 Community Rules</h2>
@@ -119,18 +83,6 @@
 				<li>Have fun and help others belong!</li>
 			</ul>
 		</section>
-
-		<!-- Footer CTA -->
-		<section class="centered-box page-flair" style="text-align:center;">
-			<h2 style="margin-bottom:0.7rem;">Ready to join the squad?</h2>
-			<a href="signup.html" class="btn-primary" style="font-size:1.1rem; padding:0.7em 2em; color:#fff;">Sign Up
-				Free</a>
-		</section>
 	</main>
-
-	<!-- Footer -->
-	<script src="/js/layout.js"></script>
-	<div id="footer-placeholder"></div>
 </body>
-
 </html>

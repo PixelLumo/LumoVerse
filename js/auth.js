@@ -108,6 +108,6 @@ export function login(email) {
   if (isAdmin) {
     window.location.href = "admin.html";
   } else {
-    window.location.href = "home.html";
+    window.location.href = "start.html";
   }
 }

@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Sign Up - PixelLumo</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
 </head>
 
 <body>
-    <div id="header-placeholder"></div>
-    <div id="nav-placeholder"></div>
-    <div id="footer-placeholder"></div>
-    <script src="js/layout.js"></script>
+    <div id="header"></div>
+    <div id="nav"></div>
 
     <main>
         <div class="centered-box page-flair" style="max-width:400px; margin:auto; text-align:center;">
@@ -32,8 +31,8 @@
             <p id="login-status" style="color:red; margin-top:1em;"></p>
         </div>
     </main>
-
-    <!-- Footer is loaded by layout.js -->
+    <div id="footer"></div>
+    <script src="js/layout.js"></script>
 
     <script type="module">
         import { signIn, signUp, startOnlineHeartbeat, login } from './js/auth.js'
@@ -52,7 +51,7 @@
             try {
                 await signIn(email, password);
                 startOnlineHeartbeat();
-                location.href = 'profile.html'
+                location.href = 'me.html'
             } catch (err) {
                 document.getElementById('login-status').textContent = err.message
             }

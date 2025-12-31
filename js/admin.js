@@ -13,7 +13,7 @@ async function requireAdmin() {
     .eq("user_id", user.id)
     .single();
 
-  if (!data?.is_admin) location.href = "home.html";
+  if (!data?.is_admin) location.href = "start.html";
 
 
 

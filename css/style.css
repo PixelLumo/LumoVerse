@@ -1,3 +1,255 @@
+/* PixelLumo Hero Section Styles */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #e8d9ff;
+  text-shadow: 0 0 20px #a855f7;
+}
+
+.hero-sub {
+  max-width: 600px;
+  margin: 1.5rem 0 2.5rem;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #9333ea, #c084fc);
+  color: #000;
+}
+
+.btn.secondary {
+  border: 1px solid #a855f7;
+  color: #e9d5ff;
+}
+
+/* ...existing code... */
+
+/* PIXELLUMO VISUAL IDENTITY */
+
+:root {
+  --primary-purple: #9333ea;
+  --secondary-purple: #c084fc;
+  --accent-pink: #d946ef;
+  --background-dark: #0f0f17;
+  --text-light: #e8d9ff;
+  --text-muted: #a3a3a3;
+  --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* CARDS & ELEMENTS */
+.card, .profile-card, .community-room {
+  background: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: 0 0 25px var(--secondary-purple, #c084fc33);
+  padding: 1.8rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.card:hover, .profile-card:hover, .community-room:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px var(--primary-purple, #9333ea55);
+}
+
+/* BUTTONS */
+.btn {
+  border-radius: 999px;
+  font-weight: 600;
+  padding: 0.9rem 1.8rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn.primary {
+  background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+  color: #000;
+}
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px var(--primary-purple);
+}
+.btn.secondary {
+  border: 1px solid var(--accent-pink);
+  color: var(--accent-pink);
+}
+.btn.secondary:hover {
+  background: var(--accent-pink);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* HERO + SPACING */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--text-light);
+  text-shadow: 0 0 25px var(--secondary-purple);
+}
+.hero-sub {
+  max-width: 600px;
+  margin: 1.5rem 0 2.5rem;
+  opacity: 0.85;
+}
+
+/* MICRO-INTERACTIONS */
+a, .btn, .card {
+  transition: all 0.2s ease;
+}
+a:hover, .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px var(--secondary-purple, #c084fc55);
+}
+input, textarea {
+  border-radius: 12px;
+  padding: 0.8rem;
+  background: #1c1c28;
+  border: 1px solid #333;
+  color: var(--text-light);
+  transition: border-color 0.2s ease;
+}
+input:focus, textarea:focus {
+  border-color: var(--primary-purple);
+  outline: none;
+}
+
+/* ...existing code... */
+/* PixelLumo Hero Section Styles */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #e8d9ff;
+  text-shadow: 0 0 20px #a855f7;
+}
+
+.hero-sub {
+  max-width: 600px;
+  margin: 1.5rem 0 2.5rem;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #9333ea, #c084fc);
+  color: #000;
+}
+
+.btn.secondary {
+  border: 1px solid #a855f7;
+  color: #e9d5ff;
+}
+
+/* Empty state for friendly language */
+.empty-state {
+  opacity: 0.6;
+  font-style: italic;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Welcome screen after signup */
+.welcome {
+  max-width: 500px;
+  margin: 6rem auto;
+  text-align: center;
+}
+
+/* Profile identity card */
+.profile-card {
+  max-width: 420px;
+  margin: 4rem auto;
+  padding: 2rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+  text-align: center;
+}
+
+.profile-card .mood {
+  opacity: 0.8;
+  margin: 1rem 0;
+}
+
+/* Community note for calm rooms */
+.community-note {
+  text-align: center;
+  opacity: 0.7;
+  margin-bottom: 2rem;
+}
+
+/* Presence indicator */
+.presence {
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
 nav+h2,
 nav+h3,
 nav+h4,

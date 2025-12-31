@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - PixelLumo</title>
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div id="header-placeholder"></div>
     <div id="nav-placeholder"></div>
-    <div id="footer-placeholder"></div>
-    <script src="/js/layout.js"></script>
+    <main>
     <h1 class="glow pink-text" style="text-align:center; margin-top:2em;">Sign Up</h1>
-    <main class="centered-box" style="max-width:400px;">
+    <div class="centered-box" style="max-width:400px;">
         <form id="signup-form" class="form-box" autocomplete="off" style="margin-top:2em;">
             <label for="signup-email" class="form-label">Email</label>
             <input type="email" id="signup-email" name="email" class="form-input" required
@@ -44,8 +44,13 @@
                 <a href="login.html" style="color:#7c4dff; text-decoration:underline;">Already have an account? Log
                     in</a>
             </div>
-        </form>
-        <script>
+                </form>
+                <section class="welcome">
+                    <h2>Welcome to PixelLumo</h2>
+                    <p>Before you continue, let’s shape your presence.</p>
+                    <a href="me.html" class="btn primary">Set up my profile</a>
+                </section>
+                <script>
             document.getElementById('toggle-signup-password').onclick = function () {
                 var pwd = document.getElementById('signup-password');
                 if (pwd.type === 'password') {
@@ -67,9 +72,10 @@
                 }
             };
         </script>
-    </main>
+    </div>
     </main>
     <div id="footer-placeholder"></div>
+    <script src="js/layout.js"></script>
 </body>
 
 </html>

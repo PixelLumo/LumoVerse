@@ -1,14 +1,11 @@
-async function loadLayout() {
-  const [header, nav, footer] = await Promise.all([
-    fetch("js/header.html").then(r => r.text()),
-    fetch("js/nav.html").then(r => r.text()),
-    fetch("js/footer.html").then(r => r.text())
-  ]);
-
-  document.getElementById("header-placeholder").innerHTML = header;
-  document.getElementById("nav-placeholder").innerHTML = nav;
-  document.getElementById("footer-placeholder").innerHTML = footer;
-  document.body.classList.remove("loading");
+function load(id, file) {
+  fetch(file)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById(id).innerHTML = html;
+    });
 }
 
-loadLayout();
+load("header", "components/header.html");
+load("nav", "components/nav.html");
+load("footer", "components/footer.html");

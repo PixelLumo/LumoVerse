@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8" />
 	<title>Admin Panel</title>
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/fonts.css" />
 </head>
-
 <body>
-
 	<div id="header"></div>
 	<div id="nav"></div>
-
 	<main class="centered-box">
 		<h1 class="glow pink-text">Admin Panel</h1>
-
 		<section class="admin-stats">
 			<div class="stat-box">
 				<h3>Total Users</h3>
@@ -34,46 +29,37 @@
 				<span id="statGallery">–</span>
 			</div>
 		</section>
-
-		<input id="searchInput" placeholder="Search..."
-			style="margin-bottom:1em; width:100%; padding:0.5em; font-size:1em;" />
-
+		<input id="searchInput" placeholder="Search..." style="margin-bottom:1em; width:100%; padding:0.5em; font-size:1em;" />
 		<section>
 			<h2>Online Users</h2>
 			<ul id="onlineUsers"></ul>
 		</section>
-
 		<section>
 			<h2>Users</h2>
 			<table id="usersTable" style="width:100%; border-collapse:collapse; color:white;"></table>
 		</section>
-
 		<section>
 			<h2>Reports</h2>
 			<div id="reports"></div>
 		</section>
-
 		<section>
 			<h2>Messages</h2>
 			<div id="messages"></div>
 		</section>
-
 		<section>
 			<h2>Gallery</h2>
 			<div id="gallery"></div>
 		</section>
 	</main>
-
 	<div id="footer"></div>
 	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 	<script src="js/admin.js"></script>
 	<script src="js/layout.js"></script>
 	<script>
-			const user = JSON.parse(localStorage.getItem("user"));
-			if (!user || user.role !== "admin") {
-				window.location.href = "/start.html";
-			}
+		const user = JSON.parse(localStorage.getItem("user"));
+		if (!user || user.role !== "admin") {
+			window.location.href = "/start.html";
+		}
 	</script>
 </body>
-
 </html>

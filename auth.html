@@ -6,13 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🔐 Auth | PixelLumo</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fonts.css">
 </head>
 
 <body>
-  <div id="header-placeholder"></div>
-  <div id="nav-placeholder"></div>
-  <div id="footer-placeholder"></div>
-  <script src="/js/layout.js"></script>
+  <div id="header"></div>
+  <div id="nav"></div>
   <div class="hero-box">
     <h1 class="glow pink-text">🔐 Login & Register</h1>
     <p>Access your PixelLumo account or create a new one.</p>
@@ -42,7 +41,9 @@
       </form>
     </div>
   </main>
+  <div id="footer"></div>
   <script src="js/auth.js"></script>
+  <script src="js/layout.js"></script>
   <script>
     // Simple tab logic for forms
     document.getElementById('show-forgot').onclick = e => {

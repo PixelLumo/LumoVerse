@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Profile - PixelLumo</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-	<div id="header-placeholder"></div>
-	<div id="nav-placeholder"></div>
-	<div id="footer-placeholder"></div>
-	<script src="/js/layout.js"></script>
-
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/style.css">
+	<div id="header"></div>
+	<div id="nav"></div>
+	<div id="footer"></div>
+	<script src="js/layout.js"></script>
 	<div class="hero-box" style="padding:0;">
-		<div id="profile-banner"
-			style="width:100%; height:180px; background:linear-gradient(90deg, #6a1b9a 60%, #8e24aa 100%); border-radius:1.5em 1.5em 0 0; position:relative; overflow:hidden;">
-			<img id="profile-banner-img" src="assets/default-banner.jpg" alt="Banner"
-				style="object-fit:cover; width:100%; height:100%; opacity:0.7;">
+		<div id="profile-banner" style="width:100%; height:180px; background:linear-gradient(90deg, #6a1b9a 60%, #8e24aa 100%); border-radius:1.5em 1.5em 0 0; position:relative; overflow:hidden;">
+			<img id="profile-banner-img" src="assets/default-banner.jpg" alt="Banner" style="object-fit:cover; width:100%; height:100%; opacity:0.7;">
 		</div>
 		<div style="position:relative; top:-48px; text-align:center;">
-			<img id="profile-avatar" src="assets/default-avatar.png" alt="User Avatar"
-				style="width:96px; height:96px; border-radius:50%; border:4px solid #fff; box-shadow:0 2px 12px #0003; background:#fff;">
+			<img id="profile-avatar" src="assets/default-avatar.png" alt="User Avatar" style="width:96px; height:96px; border-radius:50%; border:4px solid #fff; box-shadow:0 2px 12px #0003; background:#fff;">
 			<h1 id="profile-displayName" class="glow pink-text" style="margin:0.5em 0 0.2em 0;"></h1>
 			<p id="profile-bio" style="font-style:italic; color:#fff9; margin:0 0 0.5em 0;"></p>
 			<div id="profile-socials" style="margin-bottom:0.5em;"></div>
-			<a href="settings.html" class="game-link" style="margin-bottom:1em;">Edit Profile</a>
+			<a href="tune.html" class="game-link" style="margin-bottom:1em;">Edit Profile</a>
 		</div>
 	</div>
 	<main>
+		<section class="profile-card">
+			<h2>@YourName</h2>
+			<p class="mood">Mood: calm 🌙</p>
+			<p class="about">Just someone looking for quieter corners of the internet.</p>
+		</section>
 		<div class="centered-box page-flair" style="max-width:700px; margin:auto; margin-top:-2em;">
 			<!-- Stats -->
 			<section style="display:flex; justify-content:space-around; gap:1.5em; flex-wrap:wrap; margin-bottom:1.5em;">
@@ -58,13 +59,10 @@
 			<div id="profile-tab-content" style="min-height:120px;"></div>
 		</div>
 	</main>
-
 	<!-- Footer is loaded by layout.js -->
-
 	<script type="module">
 		import { supabase } from './js/supabase.js'
 		import { loadProfile } from './js/profile.js'
-
 		function renderSocialLinks(links) {
 			if (!links) return '';
 			let html = '';
@@ -73,7 +71,6 @@
 			if (links.website) html += `<a href="${links.website}" target="_blank" title="Website" style="margin:0 0.3em;"><img src="assets/link.svg" alt="Website" style="width:22px;"></a>`;
 			return html;
 		}
-
 		supabase.auth.getUser().then(async ({ data: { user } }) => {
 			if (!user) { location.href = 'login.html'; return }
 			const profile = await loadProfile(user.id)
@@ -86,30 +83,10 @@
 			document.getElementById('profile-achievements').textContent = profile.achievements?.length || 0
 			document.getElementById('profile-artcount').textContent = profile.art?.length || 0
 			document.getElementById('profile-postcount').textContent = profile.posts?.length || 0
-
 			// Tabs
 			const tabContent = document.getElementById('profile-tab-content')
-			function showTab(tab) {
-				if (tab === 'posts') {
-					tabContent.innerHTML = (profile.posts && profile.posts.length)
-						? profile.posts.map(p => `<div class='card' style='margin-bottom:0.7em;'><strong>${p.title}</strong><p>${p.content}</p></div>`).join('')
-						: '<div style="color:#fff7;">No posts yet.</div>'
-				} else if (tab === 'art') {
-					tabContent.innerHTML = (profile.art && profile.art.length)
-						? profile.art.map(a => `<div class='card' style='margin-bottom:0.7em;'><img src='${a.url}' alt='Art' style='max-width:100%; border-radius:0.7em;'><div>${a.title || ''}</div></div>`).join('')
-						: '<div style="color:#fff7;">No art uploaded yet.</div>'
-				} else if (tab === 'achievements') {
-					tabContent.innerHTML = (profile.achievements && profile.achievements.length)
-						? profile.achievements.map(ach => `<div class='card' style='margin-bottom:0.7em;'><strong>${ach.name}</strong><p>${ach.desc}</p></div>`).join('')
-						: '<div style="color:#fff7;">No achievements yet.</div>'
-				}
-			}
-			document.getElementById('tab-posts').onclick = () => showTab('posts')
-			document.getElementById('tab-art').onclick = () => showTab('art')
-			document.getElementById('tab-achievements').onclick = () => showTab('achievements')
-			showTab('posts')
+			// ...tab logic here...
 		})
 	</script>
 </body>
-
 </html>

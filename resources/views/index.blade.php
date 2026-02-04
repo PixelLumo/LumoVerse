@@ -35,9 +35,9 @@
         </div>
 
         {{-- Values --}}
-        <div class="w -25 >
+        <div class="w-1/2 m-auto" >
             <h3 class="font-bold text-3xl sm:text-4xl mb-8 mt-12 text-white inline-block" style="padding-top: 20px;">🌈 Values</h3>
-                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-white/90 text-lg list-style-none">
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-white/90 text-lg list-none">
                     <li>
                         <span class="underline decoration-yellow-400 underline-offset-4 text-yellow-300">Creativity</span>:
                         Everyone is an <span class="text-yellow-300">artist, thinker, builder</span>.
@@ -67,7 +67,7 @@
     </section>
 
     <footer class="w-full bg-gray-900/90 py-16 px-6 sm:px-12 flex flex-col md:flex-row justify-between gap-12">
-        
+
         <div class="max-w-md">
             <h3 class="font-bold text-3xl sm:text-4xl text-white mb-4 mt-12" style="padding-top: 20px;">👤 Who PixelLumo Is For</h3>
             <p class="text-white/90 text-lg mb-4">

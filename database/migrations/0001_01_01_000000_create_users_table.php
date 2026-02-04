@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->unsignedInteger('points')->default(0);
+            $table->timestamp('last_points_at')->nullable();
             $table->timestamps();
-            $table->timestamp('last_points_at')->nullable()->after('points');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

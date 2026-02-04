@@ -22,12 +22,9 @@
             <a href="{{ route('squad') }}" class="menu-link">Squad</a>
             <a href="{{ route('tutorials') }}" class="menu-link">Tutorials</a>
             <a href="{{ route('roadmap') }}" class="menu-link">Roadmap</a>
-            <a href="{{ route('about') }}" class="menu-link">About</a>
-            <a href="{{ route('rules') }}" class="menu-link">Rules</a>
             <a href="{{ route('profile') }}" class="menu-link">Profile</a>
             <a href="{{ route('settings') }}" class="menu-link">Settings</a>
             <a href="{{ route('suggestions') }}" class="menu-link">Suggestions</a>
-            <a href="{{ route('support') }}" class="menu-link">Support</a>
 
             @auth
                 <a href="{{ route('logout') }}"

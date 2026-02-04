@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CommunityController;
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -13,7 +14,7 @@ Route::get('/', function () {
 
 //Route::middleware('auth')->group(function () {
     Route::get('/home', fn () => view('home'))->name('home');
-    Route::get('/community', fn () => view('community'))->name('community');
+    Route::get('/community', [CommunityController::class, 'index'])->name('community');
     Route::get('/chat', fn () => view('chat'))->name('chat');
     Route::get('/posts', fn () => view('posts'))->name('posts');
     Route::get('/artz', fn () => view('artz'))->name('artz');

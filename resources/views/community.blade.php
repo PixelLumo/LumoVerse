@@ -18,27 +18,31 @@
         </section>
 
         {{-- Featured Members --}}
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-pink-400">🌟 Featured Members</h2>
-            <p class="text-gray-300 mb-4 text-center text-sm sm:text-base">
+        <section class="mb-16 w-full">
+            <h2 class="text-2xl font-bold mb-8 text-pink-400 text-center">🌟 Featured Members</h2>
+            
+            <p class="text-gray-400 mb-10 text-center text-sm sm:text-base">
                 Currently, <span class="text-pink-400 font-semibold">{{ $totalMembers }}</span> members are part of PixelLumo!
             </p>
 
             @if($featuredMembers->count())
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl mx-auto px-4">
                     @foreach($featuredMembers as $member)
-                        <div class="bg-gray-800 p-4 rounded-xl shadow text-center hover:shadow-lg transition-all duration-300">
-                            <h3 class="font-bold text-lg mb-1">{{ $member->name }}</h3>
-                            <p class="opacity-80 text-sm sm:text-base">{{ $member->role ?? 'Community Member' }}</p>
+                        <div class="group flex flex-col items-center">
+                            <div class="w-full bg-gray-800/50 p-6 rounded-2xl border border-gray-700/50 hover:border-pink-400/50 transition-all duration-300 text-center shadow-sm hover:shadow-pink-500/10">
+                                <h3 class="font-semibold text-gray-100 group-hover:text-pink-400 transition-colors">
+                                    {{ $member->name }}
+                                </h3>
+                            </div>
                         </div>
                     @endforeach
                 </div>
             @else
-                <div class="bg-gray-800 p-6 rounded-xl shadow text-center max-w-md mx-auto">
-                    <h3 class="font-bold text-lg mb-2">{{ auth()->user()->name }}</h3>
-                    <p class="opacity-80 text-sm sm:text-base">Founder, creator, and first member of PixelLumo</p>
+                <div class="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 text-center max-w-sm mx-auto">
+                    <h3 class="font-bold text-lg mb-1 text-pink-400">{{ auth()->user()->name }}</h3>
+                    <p class="text-gray-400 text-sm">Founder & Creator</p>
                 </div>
-                <p class="mt-4 text-gray-300 text-center max-w-md mx-auto text-sm sm:text-base">
+                <p class="mt-6 text-gray-500 text-center italic text-sm">
                     More members will appear here as they join the community.
                 </p>
             @endif
@@ -72,21 +76,21 @@
                 <table class="w-full text-left border-collapse bg-gray-800 rounded-xl shadow text-sm sm:text-base">
                     <thead>
                         <tr class="border-b border-gray-600">
+                            <th scope="col" class="px-2 sm:px-4 py-2 text-pink-400">#</th> {{-- Rank Column --}}
                             <th scope="col" class="px-2 sm:px-4 py-2 text-white">User</th>
                             <th scope="col" class="px-2 sm:px-4 py-2 text-white">Role</th>
-                            <th scope="col" class="px-2 sm:px-4 py-2 text-white">Squad</th>
-                            <th scope="col" class="px-2 sm:px-4 py-2 text-white">Badges</th>
-                            <th scope="col" class="px-2 sm:px-4 py-2 text-white">Rank</th>
+                            <th scope="col" class="px-2 sm:px-4 py-2 text-white text-center">Badges</th>
+                            <th scope="col" class="px-2 sm:px-4 py-2 text-white">Score</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="divide-y divide-gray-700">
                         @foreach($users as $user)
                             <tr class="border-b border-gray-700">
+                                <td class="px-2 sm:px-4 py-2 font-bold text-pink-500">{{ $loop->iteration }}</td>
                                 <td class="px-2 sm:px-4 py-2 text-white/90">{{ $user->name }}</td>
                                 <td class="px-2 sm:px-4 py-2 text-white/80">{{ $user->role ?? '-' }}</td>
-                                <td class="px-2 sm:px-4 py-2 text-white/80">{{ $user->squad ?? '-' }}</td>
-                                <td class="px-2 sm:px-4 py-2 text-white/80">{{ $user->badges ?? '-' }}</td>
-                                <td class="px-2 sm:px-4 py-2 text-white/80">{{ $user->rank ?? '-' }}</td>
+                                <td class="px-2 sm:px-4 py-2 text-white/80 text-center">{{ $user->badges ?? '-' }}</td>
+                                <td class="px-2 sm:px-4 py-2 text-white/80 font-mono">{{ $user->score ?? '-' }}</td>
                             </tr>
                         @endforeach
                     </tbody>

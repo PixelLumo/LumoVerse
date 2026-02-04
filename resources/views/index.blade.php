@@ -20,7 +20,7 @@
     </div>
 
     {{-- Main Sections --}}
-    <section class="flex flex-col space-y-16 px-4 sm:px-8 md:px-12 my-20">
+    <section >
 
         {{-- Origin Story --}}
         <div class="block w-full max-w-4xl bg-gradient-to-br from-gray-900/80 via-gray-800/70 to-gray-900/80
@@ -35,10 +35,9 @@
         </div>
 
         {{-- Values --}}
-        <div class="block w-full max-w-4xl bg-gradient-to-tr from-gray-900/70 via-gray-800/60 to-gray-900/70
-                    border border-white/10 ring-1 ring-white/5 p-10 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="w -25 >
             <h3 class="font-bold text-3xl sm:text-4xl mb-8 mt-12 text-white inline-block" style="padding-top: 20px;">🌈 Values</h3>
-                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-white/90 text-lg list-none p-0">
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-white/90 text-lg list-style-none">
                     <li>
                         <span class="underline decoration-yellow-400 underline-offset-4 text-yellow-300">Creativity</span>:
                         Everyone is an <span class="text-yellow-300">artist, thinker, builder</span>.

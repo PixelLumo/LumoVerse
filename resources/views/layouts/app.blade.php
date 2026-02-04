@@ -8,29 +8,22 @@
 </head>
 
 <body>
+    
+    <x-header />
 
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper">
+    <x-menu />
 
-        <!-- Header -->
-        <x-header />
-
-        <!-- Sidebar/Menu -->
-        <x-menu />
-
-        <!-- Main content -->
-        <div class="layout-wrapper">
-            <main class="main-content">
-                @yield('content')
-            </main>
-        </div>  
-
-        <!-- Footer -->
-        <x-footer />
-
-        <x-particles />
+    <div >
+        <main >
+            @yield('content')
+        </main>
     </div>
 
+    <x-particles />
+
+    <x-footer />
+
     @stack('scripts')
+
 </body>
 </html>

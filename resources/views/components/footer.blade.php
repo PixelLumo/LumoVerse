@@ -3,7 +3,9 @@
         <p>&copy; {{ date('Y') }} PixelLumo. All rights reserved.</p>
         <p>
             <a href="{{ route('privacy') }}">Privacy Policy</a> |
-            <a href="{{ route('terms') }}">Terms of Service</a>
-        </p>
+            <a href="{{ route('terms') }}">Terms of Service</a> |
+            <a href="{{ route('rules') }}">Rules</a> |
+            <a href="{{ route('about') }}">About</a> |
+            <a href="{{ route('support') }}">Support</a>
     </div>
 </footer>

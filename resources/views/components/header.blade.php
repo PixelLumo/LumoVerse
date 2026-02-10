@@ -1,7 +1,10 @@
 <header>
     <!-- Right-aligned standout header -->
     <div class="hero-header">
-        <h1 class="glow-primary">Level Up Your Pixels</h1>
+        <h1 class="font-pixel text-sm md:text-xl text-neon-accent uppercase tracking-[2px] 
+               drop-shadow-[0_0_8px_var(--neon-accent)] hover:scale-105 transition-transform duration-200">
+            Level Up Your Pixels
+        </h1>
 
         @auth
             <a href="{{ route('logout') }}"

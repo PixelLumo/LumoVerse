@@ -16,10 +16,6 @@
    2. VARIABLES (:ROOT)
    ========================================= */
 :root {
-    /* CALCULATION: 
-       Sidebar Left Position (20px) + Sidebar Width (190px) + Gap (30px) 
-       = 240px
-       */
     --menu-offset: 240px;
     --radius-sm: 6px;
     --radius-md: 10px;
@@ -102,7 +98,6 @@ table th {
     color: var(--text-main);
 }
 
-/* Forms & Inputs */
 input, textarea, select {
     background: rgba(0,0,0,0.4);
     color: var(--text-main);
@@ -154,7 +149,6 @@ body::after {
     opacity: 0.9;
 }
 
-/* Background Cinematic Shifts */
 @keyframes cinematicShiftA {
     0% { background-position: 0% 0%, 0% 0%, 0% 0%; opacity: 0.6; }
     100% { background-position: 14% 10%, -10% 8%, 8% -12%; opacity: 1; }
@@ -164,7 +158,6 @@ body::after {
     100% { background-position: -12% 10%, 10% -8%; opacity: 0.9; }
 }
 
-/* New UI Keyframes */
 @keyframes gradientShift { 
     0% { background-position: 0% 50%; } 
     50% { background-position: 100% 50%; } 
@@ -175,7 +168,6 @@ body::after {
     to { opacity: 1; transform: translateY(0); } 
 }
 
-/* Animation Classes */
 .animate-gradient { 
     background-size: 200% 200%; 
     animation: gradientShift 5s ease infinite; 
@@ -197,7 +189,6 @@ body::after {
     animation: float 4s ease-in-out infinite;
 }
 
-/* Enhances the staggered card effect */
 .floating-card {
     will-change: transform;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -482,7 +473,6 @@ body.menu-open .custom-sidebar { left: 20px; }
 /* =========================================
    11. UI COMPONENTS (CARDS, BUTTONS, MODALS)
    ========================================= */
-/* Content Cards */
 .content-card {
     background: var(--bg-panel);
     border-radius: var(--radius-md);
@@ -497,7 +487,6 @@ body.menu-open .custom-sidebar { left: 20px; }
     box-shadow: 0 0 28px var(--neon-primary), inset 0 0 14px rgba(255,255,255,0.35);
 }
 
-/* Standard Buttons */
 .btn {
     font-family: 'Press Start 2P', monospace;
     font-size: 10px;
@@ -518,7 +507,6 @@ body.menu-open .custom-sidebar { left: 20px; }
     transform: scale(1.08);
 }
 
-/* Modals */
 .modal {
     position: fixed;
     top: 0;
@@ -547,7 +535,6 @@ body.menu-open .custom-sidebar { left: 20px; }
     box-shadow: 0 0 28px var(--neon-primary), inset 0 0 12px rgba(255,255,255,0.2);
 }
 
-/* Tooltips */
 .tooltip {
     position: relative;
     display: inline-block;
@@ -575,7 +562,6 @@ body.menu-open .custom-sidebar { left: 20px; }
     opacity: 1;
 }
 
-/* Theme Switcher UI */
 .theme-switcher {
     display: flex;
     flex-wrap: wrap;
@@ -600,7 +586,6 @@ body.menu-open .custom-sidebar { left: 20px; }
     transform: translateY(-3px) scale(1.05);
 }
 
-/* Specific Theme Button Colors */
 .theme-btn[data-theme="cyber"] {
     color: #a855f7;
     border-color: #a855f7;
@@ -650,18 +635,16 @@ body.menu-open .custom-sidebar { left: 20px; }
 }
 
 .pixel-text {
-    line-height: 1.8; /* Pixel fonts need more breathing room */
+    line-height: 1.8; 
     letter-spacing: 1px;
 }
 
-/* A helper for the staggered highlights to ensure they don't look messy on mobile */
 @media (max-width: 768px) {
     .md\:translate-y-4, .md\:-translate-y-4 {
         transform: none !important;
     }
 }
 
-/* Custom glow for the boxes */
 .glow-box-border {
     position: relative;
     border: 2px solid var(--neon-primary);

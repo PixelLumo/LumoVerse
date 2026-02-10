@@ -1,9 +1,9 @@
 <div class="custom-menu-wrapper">
-    <button id="menu-toggle" class="custom-menu-btn">
+    <button id="menu-toggle" class="custom-menu-btn" style="width:80px; padding: 10px;">
         MENU
     </button>
 
-    <aside id="sidebar" class="custom-sidebar">
+    <aside id="sidebar" class="custom-sidebar" style="width:190px; padding-top: 4px; padding-bottom: 4px;">
         <nav class="custom-menu-list">
 
             <!-- Theme Switcher -->

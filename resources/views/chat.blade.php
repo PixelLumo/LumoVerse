@@ -1,5 +1,7 @@
 <x-app-layout title="Chat | PixelLumo">
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <div class="hero-box px-4 sm:px-6 py-12 text-center">
         <h1 class="glow pink-text text-4xl sm:text-5xl md:text-6xl font-bold">Chat</h1>
         <p class="mt-4 text-base sm:text-lg md:text-xl opacity-80">
@@ -16,15 +18,16 @@
             @if($channels->isEmpty())
                 <p class="text-gray-400">No channels available. Check back later or create one!</p>
             @else
-                <div id="chatChannels" class="space-y-3">
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-lg list-clean">
                     @foreach($channels as $channel)
-                        <a href="{{ route('chat.channel', $channel->id) }}"
-                           class="block px-4 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-white transition-all shadow">
-                            # {{ $channel->name }}
-                            <span class="text-gray-400 text-sm ml-2">({{ $channel->users_count }} members)</span>
-                        </a>
+                        <li>
+                            <a href="{{ route('channels.show', $channel->slug) }}" 
+                            class="block p-4 bg-gray-800 hover:bg-indigo-600 text-white rounded-lg transition duration-200 shadow-md">
+                                <span class="font-semibold">#</span> {{ $channel->name }}
+                            </a>
+                        </li>
                     @endforeach
-                </div>
+                </ul>
             @endif
         </section>
 

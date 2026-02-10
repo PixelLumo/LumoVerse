@@ -1,4 +1,7 @@
 <x-app-layout title="Community | PixelLumo">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <div class="hero-box px-4 sm:px-6 py-12 text-center">
         <h1 class="glow pink-text text-4xl sm:text-5xl md:text-6xl font-bold">Community</h1>
         <p class="mt-4 text-base sm:text-lg md:text-xl opacity-80">
@@ -26,10 +29,10 @@
             </p>
 
             @if($featuredMembers->count())
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl mx-auto px-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl mx-auto px-4">
                     @foreach($featuredMembers as $member)
-                        <div class="group flex flex-col items-center">
-                            <div class="w-full bg-gray-800/50 p-6 rounded-2xl border border-gray-700/50 hover:border-pink-400/50 transition-all duration-300 text-center shadow-sm hover:shadow-pink-500/10">
+                        <div class="group" style= "width: 200px; height: 45px;">
+                            <div class="bg-gray-800/50 rounded-2xl border border-gray-700/50 hover:border-pink-400/50 transition-all duration-300 text-center shadow-sm hover:shadow-pink-500/10 h-full flex items-center justify-center">
                                 <h3 class="font-semibold text-gray-100 group-hover:text-pink-400 transition-colors">
                                     {{ $member->name }}
                                 </h3>
@@ -52,7 +55,7 @@
         <section>
             <h2 class="text-2xl font-bold mb-6 text-pink-400">👑 Squads & Groups</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                <div class="bg-linear-to-br from-purple-900 via-purple-800 to-purple-700 p-4 rounded-xl shadow">
+                <div class="bg-gray-800 p-4 rounded-xl shadow">
                     <h3 class="font-bold text-lg mb-1">Founders</h3>
                     <p class="opacity-80 text-sm sm:text-base">Original creators and admins helping shape PixelLumo’s future.</p>
                 </div>

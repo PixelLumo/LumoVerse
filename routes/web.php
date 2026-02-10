@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\SuggestionController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -15,7 +18,9 @@ Route::get('/', function () {
 //Route::middleware('auth')->group(function () {
     Route::get('/home', fn () => view('home'))->name('home');
     Route::get('/community', [CommunityController::class, 'index'])->name('community');
-    Route::get('/chat', fn () => view('chat'))->name('chat');
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+    Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
+    Route::get('/channels/{channel:slug}', [ChatController::class, 'show'])->name('channels.show');
     Route::get('/posts', fn () => view('posts'))->name('posts');
     Route::get('/artz', fn () => view('artz'))->name('artz');
     Route::get('/squad', fn () => view('squad'))->name('squad');
@@ -25,6 +30,8 @@ Route::get('/', function () {
     Route::get('/settings', fn () => view('settings'))->name('settings');
     Route::get('/support', fn () => view('support'))->name('support');
     Route::get('/suggestions', fn () => view('suggestions'))->name('suggestions');
+    Route::post('/suggestions', [SuggestionController::class, 'submit'])->name('suggestions.submit');
+
 
     Route::post('/logout', function () {
         Auth::logout();

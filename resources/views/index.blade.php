@@ -2,7 +2,7 @@
 
     {{-- Hero Section --}}
     <div class="hero-box flex flex-col items-start md:items-center px-6 sm:px-12 md:px-16 py-24 md:py-32 gap-8">
-        <h1 class="glow pink-text text-5xl sm:text-6xl md:text-7xl font-bold leading-tight">
+        <h1 class="glow pink-text text-5xl sm:text-6xl md:text-7xl leading-tight" style="font-size: 4rem;">
             You’re more than a username.
         </h1>
         <p class="text-lg sm:text-xl md:text-2xl text-white/90 max-w-4xl">
@@ -20,53 +20,53 @@
     </div>
 
     {{-- Main Sections --}}
-    <section >
+    <section class="w-full max-w-6xl mx-auto px-4">
 
         {{-- Origin Story --}}
-        <div class="block w-full max-w-4xl bg-gradient-to-br from-gray-900/80 via-gray-800/70 to-gray-900/80
-                    border border-white/10 backdrop-blur-lg p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
-            <h3 class="font-bold text-3xl sm:text-4xl mb-6 mt-12 text-white inline-block" style="padding-top: 20px;">🌟 Origin Story</h3>
-            <p class="text-white/90 mb-4 text-lg sm:text-xl">
-                PixelLumo was created to fill a gap on the internet. Most platforms push creators to fit into a mold, prioritizing algorithms over authenticity, trends over identity, and noise over meaning. PixelLumo does the opposite. It is a space where creativity, expression, and community come first.
-            </p>
-            <p class="text-white/90 text-lg sm:text-xl">
-                A digital home where you can create, share, talk, and belong, bringing together art, conversation, learning, and competition in one evolving space.
-            </p>
+        <div class="flex justify-center">
+            <div class="w-full md:w-1/2 bg-gradient-to-br from-gray-900/80 via-gray-800/70 to-gray-900/80
+                        border border-white/10 backdrop-blur-lg p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                <h3 class="font-bold text-3xl sm:text-4xl mb-6 mt-12 inline-block" style="padding-top: 20px;">🌟 Origin Story</h3>
+                <p class="mb-4 text-lg sm:text-xl">
+                    PixelLumo was created to fill a gap on the internet. Most platforms push creators to fit into a mold, prioritizing algorithms over authenticity, trends over identity, and noise over meaning. PixelLumo does the opposite. It is a space where creativity, expression, and community come first.
+                </p>
+                <p class="text-lg sm:text-xl">
+                    A digital home where you can create, share, talk, and belong, bringing together art, conversation, learning, and competition in one evolving space.
+                </p>
+            </div>
         </div>
 
         {{-- Values --}}
         <div class="w-1/2 m-auto" >
             <h3 class="font-bold text-3xl sm:text-4xl mb-8 mt-12 text-white inline-block" style="padding-top: 20px;">🌈 Values</h3>
-                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-white/90 text-lg list-none">
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-lg list-clean">
                     <li>
-                        <span class="underline decoration-yellow-400 underline-offset-4 text-yellow-300">Creativity</span>:
-                        Everyone is an <span class="text-yellow-300">artist, thinker, builder</span>.
+                        <span class="underline decoration-yellow-400 underline-offset-4 text-yellow">Creativity</span>:
+                        Everyone is an <span class="text-yellow">artist, thinker, builder</span>.
                     </li>
 
                     <li>
-                        <span class="underline decoration-rose-400 underline-offset-4 text-rose-300">Identity</span>:
-                        <span class="font-semibold italic text-rose-300">Be yourself</span>, always.
+                        <span class="underline decoration-rose-400 underline-offset-4 text-rose">Identity</span>:
+                        Always, <span class="font-semibold italic text-rose">Be yourself</span>.
                     </li>
 
                     <li>
-                        <span class="underline decoration-emerald-400 underline-offset-4 text-emerald-300">Community</span>:
-                        <span class="text-emerald-300">Support, share, grow together</span>.
+                        <span class="underline decoration-emerald-400 underline-offset-4 text-emerald">Community</span>:
+                        Together, we <span class="text-emerald">Support, share, grow</span>.
                     </li>
 
                     <li>
-                        <span class="underline decoration-sky-400 underline-offset-4 text-sky-300">Freedom</span>:
-                        <span class="italic text-sky-300">Express, explore, and experiment without fear</span>.
+                        <span class="underline decoration-sky-400 underline-offset-4 text-sky">Freedom</span>:
+                        Without fear, <span class="italic text-sky">Express, explore,</span> and <span class="italic text-sky">experiment</span>.
                     </li>
 
                     <li>
-                        <span class="underline decoration-fuchsia-400 underline-offset-4 text-fuchsia-300">Respect</span>:
-                        <span class="font-semibold text-fuchsia-300">Kindness and inclusion</span> are at our core.
+                        <span class="underline decoration-fuchsia-400 underline-offset-4 text-fuchsia">Respect</span>:
+                        Our core is <span class="font-semibold text-fuchsia">Kindness</span> and <span class="font-semibold text-fuchsia">inclusion</span>.
                     </li>
                 </ul>
         </div>
     </section>
-
-    <footer class="w-full bg-gray-900/90 py-16 px-6 sm:px-12 flex flex-col md:flex-row justify-between gap-12">
 
         <div class="max-w-md">
             <h3 class="font-bold text-3xl sm:text-4xl text-white mb-4 mt-12" style="padding-top: 20px;">👤 Who PixelLumo Is For</h3>
@@ -85,7 +85,5 @@
             </p>
             <a href="{{ route('register') }}" class="btn-primary w-full sm:w-auto px-8 py-3 text-lg text-center">Sign Up Free</a>
         </div>
-
-    </footer>
 
 </x-app-layout>

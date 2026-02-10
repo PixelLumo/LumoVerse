@@ -5,8 +5,10 @@
 
         @auth
             <a href="{{ route('logout') }}"
-               onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-               class="menu-link" style="display:block; margin-top:10px;">Logout</a>
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+            class="menu-link logout-link">
+                Logout
+            </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                 @csrf
@@ -14,7 +16,10 @@
         @endauth
 
         @guest
-            <a href="{{ route('login') }}" class="menu-link" style="display:block; margin-top:10px;">Log In / Sign Up</a>
+            <a href="{{ route('login') }}" class="menu-link login-link">
+                Log In/Sign Up
+            </a>
         @endguest
+
     </div>
 </header>

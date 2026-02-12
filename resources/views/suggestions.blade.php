@@ -1,5 +1,7 @@
 <x-app-layout title="Suggestions | PixelLumo">
 
+<script src="https://cdn.tailwindcss.com"></script>
+
     <div class="hero-box p-12 text-center">
         <h1 class="glow pink-text text-5xl md:text-6xl font-bold">Share Your Ideas</h1>
         <p class="mt-4 text-lg md:text-xl opacity-80">Have suggestions, feedback, or ideas for PixelLumo? We’re listening!</p>
@@ -29,7 +31,7 @@
 
             <div>
                 <label for="message" class="block mb-1 font-semibold text-white">Your Suggestion</label>
-                <textarea name="message" id="message" rows="6" class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600" style="width:1200px; height:200px;" required>{{ old('message') }}</textarea>
+                <textarea name="message" id="message" rows="6" class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600" required>{{ old('message') }}</textarea>
                 @error('message') <p class="text-red-400 text-sm mt-1">{{ $message }}</p> @enderror
             </div>
 

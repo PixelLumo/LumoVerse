@@ -9,11 +9,11 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <div class="main-content max-w-6xl mx-auto py-20 px-6 space-y-24">
+    <div class="main-content max-w-6xl mx-auto py-10 px-6 space-y12">
 
         {{-- Welcome Card --}}
-        <div class="card p-8 bg-gray-900/50 backdrop-blur-md rounded-2xl border border-white/10 shadow-2xl animate-fadeIn">
-            <h1 class="glow pink-text text-4xl sm:text-5xl font-bold mb-6">
+        <div >
+            <h1 class="pink-text text-4xl sm:text-5xl font-bold mb-6">
                 @auth 
                     Welcome back, {{ auth()->user()->name }}! 
                 @else 
@@ -28,8 +28,8 @@
         </div>
 
         {{-- What We Offer --}}
-        <section>
-            <h2 class="glow pink-text text-4xl font-bold mb-20 text-center">What We Offer</h2>
+        <section style="height: 650px;">
+            <h2 class="glow pink-text text-4xl font-bold text-center" style="margin-top: 50px;">What We Offer</h2>
             <x-highlights />
         </section>
 

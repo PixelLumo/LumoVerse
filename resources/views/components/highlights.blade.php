@@ -1,25 +1,20 @@
 @php
     $highlights = [
-        [
-            'icon'=>'💬', 'title'=>'Chats', 'desc'=>'Talk strategies or hang out.',
-            'top' => '5%', 'left' => '5%', 'color' => '#a855f7' // Purple
-        ],
-        [
-            'icon'=>'📚', 'title'=>'Tutorials', 'desc'=>'Guides to level up.',
-            'top' => '15%', 'left' => '55%', 'color' => '#ec4899' // Pink
-        ],
-        [
-            'icon'=>'📝', 'title'=>'Suggestions', 'desc'=>'Submit your ideas.',
-            'top' => '40%', 'left' => '25%', 'color' => '#38bdf8' // Sky Blue
-        ],
-        [
-            'icon'=>'👤', 'title'=>'Profile', 'desc'=>'Update your info.',
-            'top' => '70%', 'left' => '10%', 'color' => '#facc15' // Yellow
-        ],
-        [
-            'icon'=>'🎨', 'title'=>'Artz', 'desc'=>'Showcase creativity.',
-            'top' => '65%', 'left' => '60%', 'color' => '#4ade80' // Green
-        ],
+        ['icon'=>'💬', 'title'=>'Chats', 'desc'=>'Talk strategies or hang out.',
+            'top' => '0%', 'left' => '5%', 'color' => '#a855f7' // Purple
+            ],
+        ['icon'=>'📚', 'title'=>'Tutorials', 'desc'=>'Guides to level up.',
+            'top' => '10%', 'left' => '60%', 'color' => '#ec4899' // Pink
+            ],
+        ['icon'=>'📝', 'title'=>'Suggestions', 'desc'=>'Submit your ideas.',
+            'top' => '30%', 'left' => '25%', 'color' => '#38bdf8' // Sky Blue
+            ],
+        ['icon'=>'👤', 'title'=>'Profile', 'desc'=>'Update your info.',
+            'top' => '60%', 'left' => '10%', 'color' => '#facc15' // Yellow
+            ],
+        ['icon'=>'🎨', 'title'=>'Artz', 'desc'=>'Showcase creativity.',
+            'top' => '55%', 'left' => '55%', 'color' => '#4ade80' // Green
+            ],
     ];
 @endphp
 <script src="https://cdn.tailwindcss.com"></script>

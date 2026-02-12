@@ -16,7 +16,7 @@
    2. VARIABLES (:ROOT)
    ========================================= */
 :root {
-    --menu-offset: 240px;
+    --menu-offset: 180px;
     --radius-sm: 6px;
     --radius-md: 10px;
     --text-main: #f8f8ff;
@@ -49,7 +49,7 @@ body {
     padding: 24px 2px 2px 2px;
     text-align: center;
     min-height: 100vh;
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka', sans-serif, ;
     color: var(--text-main);
     line-height: 1.5;
     background-color: var(--bg-dark);
@@ -231,7 +231,7 @@ body.theme-cyber {
     --bg-panel: #120b2b;
     --neon-primary: #a855f7;
     --neon-secondary: #38bdf8;
-    --neon-accent: #facc15;
+    --neon-accent: #9217c7;
     --neon-alt: #4ade80;
     --bg-glow-1: rgba(168,85,247,0.28);
     --bg-glow-2: rgba(56,189,248,0.24);
@@ -303,6 +303,7 @@ body.theme-vapor {
     padding: 100px 20px 50px 20px;
     min-height: 100vh;
     text-align: center;
+    font-family: fredoka, sans-serif;
     transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease, padding-bottom 0.3s ease;
     padding-bottom: 50px;
     margin-left: 0; 
@@ -318,14 +319,15 @@ body.menu-open .main-content {
    8. HEADER COMPONENT
    ========================================= */
 .hero-header {
+    font-family: Press Start 2P, monospace;
     position: absolute;
-    top: 20px;
+    top: 10px;
     right: 20px;
     text-align: right;
     max-width: calc(100% - 100px);
 }
 
-.hero-header h1 {
+.hero-box h1 {
     font-family: 'Press Start 2P', monospace;
     font-size: 1.25rem;
     color: var(--neon-accent);
@@ -485,6 +487,25 @@ body.menu-open .custom-sidebar { left: 20px; }
     transform: translateY(-4px) scale(1.02);
     border-color: var(--neon-primary);
     box-shadow: 0 0 28px var(--neon-primary), inset 0 0 14px rgba(255,255,255,0.35);
+}
+
+.highlights-canvas {
+    position: relative;
+    width: 100%;
+    min-height: 450px; /* Reduced from 700px */
+    margin-top: 20px;   /* Reduced from 50px */
+    text-align: left;
+}
+
+.highlight-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;        /* Reduced gap */
+    padding: 12px;     /* Reduced padding from 20px */
+    background: #0f0a1a;
+    border: 3px solid;
+    border-radius: 12px;
 }
 
 .btn {
@@ -697,12 +718,10 @@ body.menu-open .custom-sidebar { left: 20px; }
 }
 
 @media (max-width: 768px) {
-    /* Main Content Adjustments */
     .main-content {
         padding-bottom: 160px;
     }
     
-    /* Hero Header Adjustments */
     .hero-header {
         top: 10px;
         right: 10px;
@@ -713,7 +732,6 @@ body.menu-open .custom-sidebar { left: 20px; }
         letter-spacing: 1px;
     }
 
-    /* Sidebar & Menu Mobile Styles */
     .custom-sidebar {
         top: 90px;
         min-width: 80px;
@@ -728,10 +746,9 @@ body.menu-open .custom-sidebar { left: 20px; }
         padding: 8px 10px;
     }
 
-    /* Mobile Menu Logic: Overlay instead of push */
     body.menu-open .main-content {
-        margin-left: 0; /* Don't push content on mobile */
-        opacity: 0.3;   /* Dim content instead */
-        pointer-events: none; /* Prevent clicking content while menu is open */
+        margin-left: 0; 
+        opacity: 0.3;   
+        pointer-events: none; 
     }
 }

@@ -1,8 +1,9 @@
 @php
     $quickCards = [
-        ['title'=>'Your Profile','textColor'=>'text-purple-400','desc'=>'View and edit your profile details and preferences.','route'=>'profile.edit','btn'=>'Go to Profile'],
-        ['title'=>'Tutorials','textColor'=>'text-pink-400','desc'=>'Explore guides and tips to improve your skills.','route'=>'tutorials','btn'=>'View Tutorials'],
-        ['title'=>'Suggestions','textColor'=>'text-yellow-400','desc'=>'Share your ideas to help improve PixelLumo.','route'=>'suggestions','btn'=>'Submit Suggestions'],
+        ['title'=>'Tutorials', 'textColor'=>'text-pink-400', 'desc'=>'Explore guides and tips to improve your skills.', 'route'=>'tutorials', 'btn'=>'View Tutorials'],
+        ['title'=>'Suggestions', 'textColor'=>'text-yellow-400', 'desc'=>'Share your ideas to help improve PixelLumo.', 'route'=>'suggestions', 'btn'=>'Submit Suggestions'],
+        ['title'=>'Chat', 'textColor'=>'text-blue-400', 'desc'=>'Interact with the AI assistant to get answers.', 'route'=>'chat', 'btn'=>'Open Chat'],
+        ['title'=>'Roadmap', 'textColor'=>'text-emerald-400', 'desc'=>'Track upcoming features and project progress.', 'route'=>'roadmap', 'btn'=>'View Roadmap'],
     ];
 @endphp
 
@@ -14,9 +15,9 @@
                         'shadow-yellow-500/20 border-yellow-500/40');
         @endphp
         
-        <div class="content-card p-8 flex flex-col h-full border-2 {{ $glowColor }} shadow-lg">
+        <div class="content-card flex flex-col h-full border-2 {{ $glowColor }} shadow-lg">
             <h2 class="font-bold text-2xl mb-4 {{ $card['textColor'] }}">{{ $card['title'] }}</h2>
-            <p class="text-white mb-8 flex-grow leading-relaxed" style="padding-bottom: 10px;">{{ $card['desc'] }}</p>
+            <p class="text-white flex-grow leading-relaxed" style="padding-bottom: 10px;">{{ $card['desc'] }}</p>
             
             @if(Route::has($card['route']))
                 <a href="{{ route($card['route']) }}" class="btn w-full block text-center py-3">
